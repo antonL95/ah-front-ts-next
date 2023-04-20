@@ -10,10 +10,13 @@ interface NavbarProps {
     };
 }
 
-const FooterSection: React.FC<NavbarProps> = ({dictionary}) => {
+const FooterSection = ({dictionary}: NavbarProps) => {
     return (
-        <>
-        </>
+        <div className={`bg-black`}>
+            <section>
+
+            </section>
+        </div>
     );
 };
 

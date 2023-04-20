@@ -31,8 +31,8 @@ const ContactModalWithNavigationButton: React.FC<ContactButtonProps> = ({diction
             <Portal>
                 <Modal opened={opened} onClose={close} centered size={`auto`} withCloseButton={false}>
                     <div className={`grid grid-cols-1 lg:grid-cols-2`}>
-                        <section className={`ml-12 mr-14`}>
-                            <h1 className="text-5xl font-urbanist font-thin text-center my-9 mx-12">Contact Us</h1>
+                        <section className={`md:ml-12 md:mr-14`}>
+                            <h1 className="font-urbanist font-thin text-center text-3xl mb-8 mx-12 md:my-9 md:text-5xl">Contact Us</h1>
                             <ContactForm/>
                         </section>
                         <section className={`hidden lg:block`}>
