@@ -7,7 +7,8 @@ import Image from "next/image";
 import logo from "@/ah/img/logo_black.svg";
 import menuIcon from "@/ah/img/hamburger.svg";
 import crossIcon from "@/ah/img/cross.svg";
-import ContactModalWithNavigationButton from "@/ah/components/ContactModalWithNavigationButton";
+import ContactModalWithNavigationButton from "@/ah/components/Shared/ContactModalWithNavigationButton";
+import GalleryButton from "@/ah/components/Shared/GalleryButton";
 
 interface NavbarProps {
     dictionary: {
@@ -38,11 +39,8 @@ const NavigationBar: React.FC<NavbarProps> = ({dictionary}) => {
                 </div>
                 <div className={`${opened ? 'block' : 'hidden'} md:block`}>
                     <div className={`grid grid-cols-1 p-4 md:flex md:flex-row md:justify-between`}>
-                        <Link href="/gallery" onClick={close}
-                              className={`bg-black text-white text-center font-roboto font-thin py-4 px-8 hover:bg-white hover:text-black hover:border hover:border-black focus:outline-none mb-4 md:mb-0 md:mr-6`}>
-                            {dictionary.galleryButton}
-                        </Link>
-                        <ContactModalWithNavigationButton dictionary={dictionary} onClick={close}/>
+                        <GalleryButton close={close} dictionary={dictionary} classStyles={`bg-white text-black border-black border hover:bg-black hover:text-white`}/>
+                        <ContactModalWithNavigationButton dictionary={dictionary} onClick={close} classStyles={`bg-black text-white border-black border hover:bg-white hover:text-black`}/>
                     </div>
                 </div>
             </div>

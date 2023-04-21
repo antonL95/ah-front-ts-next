@@ -3,19 +3,20 @@
 import React from 'react';
 import {useDisclosure} from '@mantine/hooks';
 import {Modal} from '@mantine/core';
-import contactSrc from '../img/contact_image.png';
+import contactSrc from '../../img/contact_image.png';
 import Image from 'next/image';
-import ContactForm from "@/ah/components/ContactForm";
-import Portal from "@/ah/components/Portal";
+import ContactForm from "@/ah/components/Shared/ContactForm";
+import Portal from "@/ah/components/Shared/Portal";
 
 interface ContactButtonProps {
     dictionary: {
         contactButton: string;
     }
     onClick?: () => void;
+    classStyles: string;
 }
 
-const ContactModalWithNavigationButton: React.FC<ContactButtonProps> = ({dictionary, onClick}) => {
+const ContactModalWithNavigationButton = ({dictionary, onClick, classStyles}:ContactButtonProps) => {
 
     const [opened, {open, close}] = useDisclosure(false);
 
@@ -44,7 +45,7 @@ const ContactModalWithNavigationButton: React.FC<ContactButtonProps> = ({diction
 
             <button
                 onClick={handleOnClick}
-                className="bg-white text-black font-roboto font-thin py-4 px-8 border border-black hover:bg-black hover:text-white focus:outline-none"
+                className={`${classStyles} font-roboto font-thin py-4 px-8 border border-black hover:bg-black hover:text-white focus:outline-none`}
             >
                 {dictionary.contactButton}
             </button>

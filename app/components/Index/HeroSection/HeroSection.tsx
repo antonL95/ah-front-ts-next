@@ -20,7 +20,7 @@ const HeroSection: React.FC<params> = ({dictionary}) => {
         <div className={`md:flex md:bg-[url(./img/hero_section.png)] bg-no-repeat bg-right bg-blend-difference md:h-[730px]`}>
             <div className={`container mx-auto`}>
                 <section className={`max-w-3xl mt-10 md:mt-24 md:ml-20`}>
-                    <h1 className={`text-[2.375rem] md:text-7xl font-medium`}>
+                    <h1 className={`text-[2rem] md:text-7xl font-medium whitespace-pre-line md:whitespace-normal`}>
                         {dictionary.heroSection.title}
                     </h1>
                     <h3 className={`flex text-xl mt-8 md:text-2xl md:mt-12`}>

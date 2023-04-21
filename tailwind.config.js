@@ -11,6 +11,7 @@ module.exports = {
       'white': '#ffffff',
       'gray': '#F2F2F2',
       'gray-60': '#666666',
+      'gray-80': '#B3B3B3',
     },
     container: {
       padding: {

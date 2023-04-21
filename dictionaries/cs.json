@@ -2,10 +2,14 @@
   "galleryButton": "Gallery",
   "contactButton": "Contact",
   "heroSection": {
-    "title": "Unique art for unique businesses",
-    "subtitle": "",
-    "subtitle1": "",
-    "subtitle2": "",
-    "subtitle3": ""
+    "title": "Unique art for\n unique businesses",
+    "subtitle": "with the power of art",
+    "subtitle1": "Attracting people",
+    "subtitle2": "Leading people",
+    "subtitle3": "Inspiring people"
+  },
+  "footer": {
+    "headline": "Looking to create an inspiring workplace?",
+    "text": "Share your vision with us - let's talk!\nAre you seeking inspiration? Explore our art collection."
   }
 }
