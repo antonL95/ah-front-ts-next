@@ -1,6 +1,7 @@
 import {getDictionary} from '../../get-directories'
 import {Locale} from '../../i18n-config'
 import HeroSection from '@/ah/components/Index/HeroSection/HeroSection'
+import WhyArt from "@/ah/components/Index/WhyArt/WhyArt";
 
 
 const IndexPage = async ({params: {lang},}: { params: { lang: Locale } }) => {
@@ -9,6 +10,7 @@ const IndexPage = async ({params: {lang},}: { params: { lang: Locale } }) => {
     return (
         <>
             <HeroSection dictionary={dictionary}/>
+            <WhyArt dictionary={dictionary}/>
         </>
     )
 }

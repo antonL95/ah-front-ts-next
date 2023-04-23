@@ -14,6 +14,25 @@ export const metadata = {
     description: `Artist's hero description`,
 }
 
+async function getData() {
+    const response = await fetch(
+        `${process.env.STRAPI_URL}references`,
+        {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${process.env.STRAPI_KEY}`,
+            },
+            method: 'GET',
+        }
+    )
+
+    if(!response.ok) {
+        console.log(`error`);
+    }
+
+    return response.json();
+}
+
 const Root = async ({children, params}: { children: React.ReactNode, params: { lang: "cs" | "en" } }) => {
     const dictionary = await getDictionary(params.lang)
 

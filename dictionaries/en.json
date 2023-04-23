@@ -9,7 +9,10 @@
     "subtitle3": "Inspiring people"
   },
   "footer": {
-    "headline": "Looking to create an inspiring workplace?",
+    "headline": "Looking to create an\n inspiring workplace?",
     "text": "Share your vision with us - let's talk!\nAre you seeking inspiration? Explore our art collection."
+  },
+  "whyArt": {
+    "headline": "Why Art"
   }
 }
