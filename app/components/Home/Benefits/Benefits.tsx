@@ -42,12 +42,11 @@ const Benefits = ({dictionary}: Benefits) => {
     }
 
     for (const section of Object.entries(dictionary.benefits)) {
-        const id = useId();
         const key: string = section[0];
         const value: any = section[1];
 
         sections.push(
-            <div className={``} key={id}>
+            <div className={``} key={key}>
                 <h2 className={`flex flex-row text-2xl`}>
                     {choseIcon(key)} {value.headline}
                 </h2>
