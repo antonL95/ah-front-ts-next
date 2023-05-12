@@ -1,7 +1,7 @@
-"use client";
 import React from 'react';
 import heroSectionSrc from '@/ah/img/hero_section.png';
 import Image from 'next/image';
+import Underline from "@/ah/components/ui/icon/underline";
 
 type params = {
     dictionary: any;
@@ -9,16 +9,15 @@ type params = {
 
 const HeroSection = ({dictionary}: params) => {
     return (
-        <div
-            className={`md:flex md:bg-[url(./img/hero_section.png)] bg-no-repeat bg-right bg-blend-difference md:h-[730px]`} id={`intro`}>
+        <div className={`md:flex relative md:h-[730px]`} id={`intro`}>
+            <Image src={heroSectionSrc} alt="hero section" className={`hidden md:block absolute top-0 right-0`}/>
             <div className={`container mx-auto`}>
                 <section className={`max-w-3xl mt-10 md:mt-24`}>
                     <h1 className={`text-[2rem] md:text-7xl font-medium whitespace-pre-line md:whitespace-normal`}>
                         {dictionary.heroSection.title}
                     </h1>
                     <h3 className={`flex text-xl mt-8 md:text-2xl md:mt-12`}>
-                        <div
-                            className={`inline-block relative bg-[url(./img/underline.png)] bg-no-repeat bg-bottom h-[33px] w-[155px] md:w-[188px]`}>
+                        <div className={`inline-block relative h-[33px] w-[155px] md:w-[188px]`}>
                             <span className={`absolute animate-topToBottom opacity-0`}>
                                 {dictionary.heroSection.subtitle1}
                             </span>
@@ -27,6 +26,9 @@ const HeroSection = ({dictionary}: params) => {
                             </span>
                             <span className={`absolute animate-topToBottom opacity-0`} style={{animationDelay: '10s'}}>
                                 {dictionary.heroSection.subtitle3}
+                            </span>
+                            <span className={`absolute bottom-0 md:bottom-[-3px]`}>
+                                <Underline />
                             </span>
                         </div>
                         {` `}

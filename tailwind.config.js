@@ -42,7 +42,7 @@ module.exports = {
             animation: {
                 'topToBottom': 'topToBottom 15s linear 0s infinite',
                 'slideDown': 'slideDown duration-500 ease-out;',
-            }
+            },
         },
     },
     plugins: [],
