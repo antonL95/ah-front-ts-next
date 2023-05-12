@@ -1,21 +1,23 @@
-'use client';
-
 import React from 'react';
 import Image from 'next/image';
 import logoSrc from '@/ah/img/logo_white.svg';
 import GalleryButton from "@/ah/components/ui/GalleryButton";
 import ContactModalWithNavigationButton from "@/ah/components/ui/ContactModalWithNavigationButton";
+import {getDictionary} from "../../../get-directories";
+import {Locale} from "../../../i18n-config";
 
-type FooterProps = {
-    dictionary: any;
-}
-
-const FooterSection = ({dictionary}: FooterProps) => {
-    const handleClose = () => {
+type Props = {
+    params: {
+        lang: Locale
     }
+}
+const FooterSection = async ({params: {lang}}: Props) => {
+    const dictionary: any = await getDictionary(lang);
+
     return (
         <div className={`bg-black`}>
-            <section className={`container grid grid-cols-1 justify-center items-center pt-16 md:mx-auto md:flex md:flex-col md:justify-center md:w-5/12`}>
+            <section
+                className={`container grid grid-cols-1 justify-center items-center pt-16 md:mx-auto md:flex md:flex-col md:justify-center md:w-5/12`}>
                 <h1 className={`text-white text-center text-[2rem] md:text-5xl font-medium md:text-center md:mb-12 md:mt-28 2xl:whitespace-pre-line`}>
                     {dictionary.footer.headline}
                 </h1>
@@ -23,9 +25,9 @@ const FooterSection = ({dictionary}: FooterProps) => {
                     {dictionary.footer.text}
                 </article>
                 <div className={`grid grid-cols-1 md:flex md:flex-row md:justify-between`}>
-                    <ContactModalWithNavigationButton dictionary={dictionary} onClick={handleClose}
+                    <ContactModalWithNavigationButton dictionary={dictionary}
                                                       classStyles={`bg-white text-black border-white border hover:bg-black hover:text-white hover:border-white mt-8 mb-4 md:mt-0 md:mb-0 md:mr-5`}/>
-                    <GalleryButton close={handleClose} dictionary={dictionary}
+                    <GalleryButton dictionary={dictionary}
                                    classStyles={`bg-black text-white border border-white hover:bg-white hover:text-black md:mt-0 md:mb-0`}/>
                 </div>
             </section>

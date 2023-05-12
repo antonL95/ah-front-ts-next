@@ -1,12 +1,13 @@
 import {i18n} from '../../i18n-config'
-import '../globals.css'
+import '@/ah/globals.css'
 import React from "react";
 import NavigationBar from "@/ah/components/Navigation/NavigationBar";
 import {getDictionary} from "../../get-directories";
 import FooterSection from "@/ah/components/Footer/FooterSection";
+import {Locale} from "../../i18n-config";
 
 export const generateStaticParams = () => {
-    return i18n.locales.map((locale) => ({lang: locale}))
+    return i18n.locales.map((locale: Locale) => ({lang: locale}))
 }
 
 export const metadata = {
@@ -26,14 +27,21 @@ async function getData() {
         }
     )
 
-    if(!response.ok) {
+    if (!response.ok) {
         console.log(`error`);
     }
 
     return response.json();
 }
 
-const Root = async ({children, params}: { children: React.ReactNode, params: { lang: "cs" | "en" } }) => {
+type Props = {
+    children: React.ReactNode,
+    params: {
+        lang: Locale,
+    }
+}
+
+const Root = async ({children, params}: Props) => {
     const dictionary = await getDictionary(params.lang)
 
     return (
@@ -46,7 +54,7 @@ const Root = async ({children, params}: { children: React.ReactNode, params: { l
             {children}
         </main>
         <footer>
-            <FooterSection dictionary={dictionary} />
+            <FooterSection params={params}/>
         </footer>
         <div id={`portals`}></div>
         </body>

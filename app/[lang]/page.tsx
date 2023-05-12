@@ -5,7 +5,7 @@ import WhyArt from "@/ah/components/Home/WhyArt/WhyArt";
 import Benefits from "@/ah/components/Home/Benefits/Benefits";
 
 
-const IndexPage = async ({params: {lang},}: { params: { lang: Locale } }) => {
+const IndexPage = async ({params: {lang}}: { params: { lang: Locale } }) => {
     const dictionary = await getDictionary(lang)
 
     return (

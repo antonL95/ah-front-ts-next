@@ -8,19 +8,12 @@ import Wellbeing from "@/ah/components/ui/icon/wellbeing";
 import Csr from "@/ah/components/ui/icon/csr";
 
 type Benefits = {
-    dictionary: {
-        benefits: [{
-            headline: string,
-            subheadline: string,
-            content: string,
-        }]
-    },
+    dictionary: any,
 };
 
 
-const Benefits = ({ dictionary }: Benefits) => {
-    const id = useId();
-    const sections:ReactElement[] = [];
+const Benefits = ({dictionary}: Benefits) => {
+    const sections: ReactElement[] = [];
 
     const choseIcon = (key: string) => {
         switch (key) {
@@ -49,10 +42,12 @@ const Benefits = ({ dictionary }: Benefits) => {
     }
 
     for (const section of Object.entries(dictionary.benefits)) {
-        const [key, value] = section;
+        const id = useId();
+        const key: string = section[0];
+        const value: any = section[1];
 
         sections.push(
-            <div className={``} key={key}>
+            <div className={``} key={id}>
                 <h2 className={`flex flex-row text-2xl`}>
                     {choseIcon(key)} {value.headline}
                 </h2>

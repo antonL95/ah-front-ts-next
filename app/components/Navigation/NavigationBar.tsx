@@ -9,12 +9,10 @@ import menuIcon from "@/ah/img/hamburger.svg";
 import crossIcon from "@/ah/img/cross.svg";
 import ContactModalWithNavigationButton from "@/ah/components/ui/ContactModalWithNavigationButton";
 import GalleryButton from "@/ah/components/ui/GalleryButton";
+import NavigationHash from "@/ah/components/ui/NavigationHash";
 
 type NavbarProps = {
-    dictionary: {
-        galleryButton: string;
-        contactButton: string;
-    };
+    dictionary: any;
 }
 
 const NavigationBar = ({dictionary}: NavbarProps) => {
@@ -39,8 +37,11 @@ const NavigationBar = ({dictionary}: NavbarProps) => {
                 </div>
                 <div className={`${opened ? 'block' : 'hidden'} md:block`}>
                     <div className={`grid grid-cols-1 p-4 md:flex md:flex-row md:justify-between`}>
-                        <GalleryButton close={close} dictionary={dictionary} classStyles={`bg-white text-black border-black border hover:bg-black hover:text-white`}/>
-                        <ContactModalWithNavigationButton dictionary={dictionary} onClick={close} classStyles={`bg-black text-white border-black border hover:bg-white hover:text-black`}/>
+                        <NavigationHash close={close} className={`md:hidden text-center`}/>
+                        <GalleryButton close={close} dictionary={dictionary}
+                                       classStyles={`bg-white text-black border-black border hover:bg-black hover:text-white`}/>
+                        <ContactModalWithNavigationButton dictionary={dictionary} onClick={close}
+                                                          classStyles={`bg-black text-white border-black border hover:bg-white hover:text-black`}/>
                     </div>
                 </div>
             </div>

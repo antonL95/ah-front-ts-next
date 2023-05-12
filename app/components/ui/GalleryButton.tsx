@@ -2,10 +2,8 @@ import Link from "next/link";
 import React from "react";
 
 type GalleryButtonProps = {
-    close: () => void;
-    dictionary: {
-        galleryButton: string;
-    };
+    close?: () => void;
+    dictionary: any;
     classStyles: string;
 }
 const GalleryButton = ({close, dictionary, classStyles}: GalleryButtonProps) => {

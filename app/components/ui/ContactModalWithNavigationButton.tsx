@@ -9,14 +9,12 @@ import ContactForm from "@/ah/components/ui/ContactForm";
 import Portal from "@/ah/components/ui/Portal";
 
 type ContactButtonProps = {
-    dictionary: {
-        contactButton: string;
-    }
+    dictionary: any;
     onClick?: () => void;
     classStyles: string;
 }
 
-const ContactModalWithNavigationButton = ({dictionary, onClick, classStyles}:ContactButtonProps) => {
+const ContactModalWithNavigationButton = ({dictionary, onClick = undefined, classStyles}:ContactButtonProps) => {
 
     const [opened, {open, close}] = useDisclosure(false);
 
