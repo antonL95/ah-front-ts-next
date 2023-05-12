@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-interface ContactFormData {
+type ContactFormData = {
     name: string;
     email: string;
     subject: string;

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-interface GalleryButtonProps {
+type GalleryButtonProps = {
     close: () => void;
     dictionary: {
         galleryButton: string;

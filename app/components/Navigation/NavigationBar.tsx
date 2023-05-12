@@ -7,17 +7,17 @@ import Image from "next/image";
 import logo from "@/ah/img/logo_black.svg";
 import menuIcon from "@/ah/img/hamburger.svg";
 import crossIcon from "@/ah/img/cross.svg";
-import ContactModalWithNavigationButton from "@/ah/components/Shared/ContactModalWithNavigationButton";
-import GalleryButton from "@/ah/components/Shared/GalleryButton";
+import ContactModalWithNavigationButton from "@/ah/components/ui/ContactModalWithNavigationButton";
+import GalleryButton from "@/ah/components/ui/GalleryButton";
 
-interface NavbarProps {
+type NavbarProps = {
     dictionary: {
         galleryButton: string;
         contactButton: string;
     };
 }
 
-const NavigationBar: React.FC<NavbarProps> = ({dictionary}) => {
+const NavigationBar = ({dictionary}: NavbarProps) => {
     const [opened, {toggle, close}] = useDisclosure(false);
 
     return (
@@ -29,12 +29,12 @@ const NavigationBar: React.FC<NavbarProps> = ({dictionary}) => {
                             <Image src={logo} alt="artists hero logo" className="h-10 w-auto"/>
                         </Link>
                     </div>
-                    <button className={'relative focus:outline-none md:hidden'} style={{width: 24, height: 24}}
+                    <button className={'relative focus:outline-none md:hidden w-[18px]'}
                             onClick={toggle}>
                         <Image src={menuIcon} alt={``}
-                               className={`${opened ? 'opacity-0' : 'opacity-100'} absolute transition-opacity duration-300`}/>
+                               className={`${opened ? 'opacity-0' : 'opacity-100'} absolute transition-opacity duration-300 top-0`}/>
                         <Image src={crossIcon} alt={``}
-                               className={`${opened ? 'opacity-100' : 'opacity-0'} absolute transition-opacity duration-300`}/>
+                               className={`${opened ? 'opacity-100' : 'opacity-0'} absolute transition-opacity duration-300 top-0`}/>
                     </button>
                 </div>
                 <div className={`${opened ? 'block' : 'hidden'} md:block`}>

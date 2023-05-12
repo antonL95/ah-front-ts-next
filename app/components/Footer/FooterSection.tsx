@@ -1,24 +1,16 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
-import logoSrc from '../../img/logo_white.svg';
-import GalleryButton from "@/ah/components/Shared/GalleryButton";
-import ContactModalWithNavigationButton from "@/ah/components/Shared/ContactModalWithNavigationButton";
+import logoSrc from '@/ah/img/logo_white.svg';
+import GalleryButton from "@/ah/components/ui/GalleryButton";
+import ContactModalWithNavigationButton from "@/ah/components/ui/ContactModalWithNavigationButton";
 
-interface NavbarProps {
-    dictionary: {
-        galleryButton: string;
-        contactButton: string;
-        footer: {
-            headline: string;
-            text: string;
-        };
-    };
+type FooterProps = {
+    dictionary: any;
 }
 
-const FooterSection = ({dictionary}: NavbarProps) => {
+const FooterSection = ({dictionary}: FooterProps) => {
     const handleClose = () => {
     }
     return (

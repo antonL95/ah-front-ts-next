@@ -3,7 +3,7 @@ import {createPortal} from "react-dom"
 import {ReactNode} from "react"
 import React from "react"
 
-interface PortalProps {
+type PortalProps = {
     children?: ReactNode
 }
 

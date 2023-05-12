@@ -5,10 +5,10 @@ import {useDisclosure} from '@mantine/hooks';
 import {Modal} from '@mantine/core';
 import contactSrc from '../../img/contact_image.png';
 import Image from 'next/image';
-import ContactForm from "@/ah/components/Shared/ContactForm";
-import Portal from "@/ah/components/Shared/Portal";
+import ContactForm from "@/ah/components/ui/ContactForm";
+import Portal from "@/ah/components/ui/Portal";
 
-interface ContactButtonProps {
+type ContactButtonProps = {
     dictionary: {
         contactButton: string;
     }

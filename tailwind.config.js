@@ -21,7 +21,7 @@ module.exports = {
     },
     fontFamily: {
       roboto: ['Roboto', 'sans-serif'],
-      urbanist: ['Urbanist', 'sans-serif'],
+      urbanist: ['"Urbanist"', 'sans-serif'],
     },
     keyframes: {
       'topToBottom': {

@@ -1,24 +1,16 @@
 "use client";
 import React from 'react';
-import heroSectionSrc from '../../../img/hero_section.png';
+import heroSectionSrc from '@/ah/img/hero_section.png';
 import Image from 'next/image';
 
-interface params {
-    dictionary: {
-        heroSection: {
-            title: string;
-            subtitle: string;
-            subtitle1: string;
-            subtitle2: string;
-            subtitle3: string;
-        };
-    };
+type params = {
+    dictionary: any;
 }
 
 const HeroSection = ({dictionary}: params) => {
     return (
         <div
-            className={`md:flex md:bg-[url(./img/hero_section.png)] bg-no-repeat bg-right bg-blend-difference md:h-[730px]`}>
+            className={`md:flex md:bg-[url(./img/hero_section.png)] bg-no-repeat bg-right bg-blend-difference md:h-[730px]`} id={`intro`}>
             <div className={`container mx-auto`}>
                 <section className={`max-w-3xl mt-10 md:mt-24`}>
                     <h1 className={`text-[2rem] md:text-7xl font-medium whitespace-pre-line md:whitespace-normal`}>
