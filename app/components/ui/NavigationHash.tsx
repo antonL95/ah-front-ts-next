@@ -6,23 +6,10 @@ type Props = {
     className?: string;
 }
 const NavigationHash = (props: Props) => {
-    const handleClickScroll = (target: string, e: React.UIEvent) => {
-        e.preventDefault();
-        if (props.close) {
-            props.close();
-        }
-
-        const element = document.getElementById(target);
-        if (element) {
-            element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
-        }
-    };
     return <>
         <div className={`grid grid-cols-1 ${props.className || ''}`}>
-            <Link href={`#intro`} onClick={
-                (e) => handleClickScroll('intro', e)}>Intro</Link>
-            <Link href={`#why`} onClick={
-                (e) => handleClickScroll('why', e)}>Why Art</Link>
+            <Link href={`#intro`} onClick={props.close}>Intro</Link>
+            <Link href={`#why`} onClick={props.close}>Why Art</Link>
         </div>
     </>
 }
