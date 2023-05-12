@@ -3,17 +3,11 @@ import Image from 'next/image';
 import logoSrc from '@/ah/img/logo_white.svg';
 import GalleryButton from "@/ah/components/ui/GalleryButton";
 import ContactModalWithNavigationButton from "@/ah/components/ui/ContactModalWithNavigationButton";
-import {getDictionary} from "../../../get-directories";
-import {Locale} from "../../../i18n-config";
 
 type Props = {
-    params: {
-        lang: Locale
-    }
+    dictionary: any;
 }
-const FooterSection = async ({params: {lang}}: Props) => {
-    const dictionary: any = await getDictionary(lang);
-
+const FooterSection = ({dictionary}: Props) => {
     return (
         <div className={`bg-black`}>
             <section

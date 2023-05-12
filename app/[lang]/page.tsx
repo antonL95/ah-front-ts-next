@@ -4,8 +4,12 @@ import HeroSection from '@/ah/components/Home/HeroSection/HeroSection'
 import WhyArt from "@/ah/components/Home/WhyArt/WhyArt";
 import Benefits from "@/ah/components/Home/Benefits/Benefits";
 
-
-const IndexPage = async ({params: {lang}}: { params: { lang: Locale } }) => {
+type Props = {
+    params: {
+        lang: Locale,
+    }
+}
+const IndexPage = async ({params: {lang}}: Props) => {
     const dictionary = await getDictionary(lang)
 
     return (

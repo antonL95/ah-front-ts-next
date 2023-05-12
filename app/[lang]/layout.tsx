@@ -54,7 +54,7 @@ const Root = async ({children, params}: Props) => {
             {children}
         </main>
         <footer>
-            <FooterSection params={params}/>
+            <FooterSection dictionary={dictionary}/>
         </footer>
         <div id={`portals`}></div>
         </body>
