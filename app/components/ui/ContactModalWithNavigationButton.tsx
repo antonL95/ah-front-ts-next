@@ -14,7 +14,7 @@ type ContactButtonProps = {
     classStyles: string;
 }
 
-const ContactModalWithNavigationButton = ({dictionary, onClick = undefined, classStyles}:ContactButtonProps) => {
+const ContactModalWithNavigationButton = ({dictionary, onClick = undefined, classStyles}: ContactButtonProps) => {
 
     const [opened, {open, close}] = useDisclosure(false);
 
@@ -31,7 +31,8 @@ const ContactModalWithNavigationButton = ({dictionary, onClick = undefined, clas
                 <Modal opened={opened} onClose={close} centered size={`auto`} withCloseButton={false}>
                     <div className={`grid grid-cols-1 lg:grid-cols-2`}>
                         <section className={`md:ml-12 md:mr-14`}>
-                            <h1 className="font-urbanist font-thin text-center text-3xl mb-8 mx-12 md:my-9 md:text-5xl">Contact Us</h1>
+                            <h1 className="font-urbanist font-thin text-center text-3xl mb-8 mx-12 md:my-9 md:text-5xl">Contact
+                                Us</h1>
                             <ContactForm/>
                         </section>
                         <section className={`hidden lg:block`}>
@@ -43,7 +44,7 @@ const ContactModalWithNavigationButton = ({dictionary, onClick = undefined, clas
 
             <button
                 onClick={handleOnClick}
-                className={`${classStyles} font-roboto font-thin py-4 px-8 border border-black hover:bg-black hover:text-white focus:outline-none`}
+                className={`${classStyles} font-roboto font-thin py-4 px-8 border border-black focus:outline-none`}
             >
                 {dictionary.contactButton}
             </button>

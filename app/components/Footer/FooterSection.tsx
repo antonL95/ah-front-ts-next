@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+// @ts-ignore
 import logoSrc from '@/ah/img/logo_white.svg';
 import GalleryButton from "@/ah/components/ui/GalleryButton";
 import ContactModalWithNavigationButton from "@/ah/components/ui/ContactModalWithNavigationButton";
