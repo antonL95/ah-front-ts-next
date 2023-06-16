@@ -41,5 +41,22 @@
       "subheadline": "",
       "content": "Displaying and enjoying art from local artists is an ideal instrument in an effective Corporate Social Responsibility program. Whether a company becomes a sponsor of a particular artist, the wider art community, or encourages participation in art-related initiatives, fostering better community relations can only enhance a company’s PR profile.\n\nRenting artworks of our featured, emerging artists can make a real difference in their further professional development. This passive income gives them freedom, peace of mind, and extra time to dedicate to the creative process."
     }
+  },
+  "benefitsOfRentingArt": {
+    "headline": "Benefits of renting art",
+    "sections": [
+      {
+        "headline": "Access vs. Ownership",
+        "text": "In today's shared and membership-based economy, the benefits of access to assets outweighs ownership. Our aim is to take the burden off businesses' shoulders when it comes to buying & selling art, price evaluation, art consultancy, insurance, and logistics around artwork. In a nutshell, we minimize the risks and costs of enjoying your art portfolio."
+      },
+      {
+        "headline": "Operating vs. Capital Expenditure",
+        "text": "Buying multiple pieces of original artworks may be quite a significant investment for a business and can negatively impact the cash flow. To conserve cash, renting artwork can be a better option. On top of that, operating expenses can reduce taxes."
+      },
+      {
+        "headline": "Flexibility and Scalability",
+        "text": "It’s true, every business is unique, but each one goes through the same lifecycle. Whether your business has been just founded, is expanding like crazy, or scaling down, there may be a need for an art portfolio to reflect that particular stage and fit the current company’s needs. Renting art enables flexibility in scaling the portfolio. Need different art? Need more art or less art? No problem, we've got you covered."
+      }
+    ]
   }
 }
