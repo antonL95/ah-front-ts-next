@@ -20,6 +20,7 @@
     "@mantine/hooks": "^6.0.13",
     "@mantine/modals": "^6.0.13",
     "@mantine/notifications": "^6.0.13",
+    "@tabler/icons-react": "^2.22.0",
     "autoprefixer": "10.4.14",
     "dayjs": "^1.11.8",
     "embla-carousel-react": "^7.1.0",

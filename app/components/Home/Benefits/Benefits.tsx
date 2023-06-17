@@ -1,4 +1,5 @@
 'use client';
+
 import React, {ReactElement} from "react";
 import Sections from "@/ah/components/ui/Sections";
 import SpoilerExtension from "@/ah/components/ui/SpoilerExtension";
@@ -6,8 +7,8 @@ import Creativity from "@/ah/components/ui/icon/creativity";
 import Branding from "@/ah/components/ui/icon/branding";
 import Wellbeing from "@/ah/components/ui/icon/wellbeing";
 import Csr from "@/ah/components/ui/icon/csr";
-import benefitImage1 from "@/ah/img/benefits_1.png"
-import benefitImage2 from "@/ah/img/benefits_2.png"
+import benefitImage1 from "@/ah/img/benefits_1.webp"
+import benefitImage2 from "@/ah/img/benefits_2.webp"
 import Image from "next/image";
 
 type Benefits = {

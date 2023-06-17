@@ -1,5 +1,5 @@
 import React from 'react';
-import heroSectionSrc from '@/ah/img/hero_section.png';
+import heroSectionSrc from '@/ah/img/hero_section.webp';
 import Image from 'next/image';
 import Underline from "@/ah/components/ui/icon/underline";
 
@@ -38,7 +38,7 @@ const HeroSection = ({dictionary}: params) => {
                     </h3>
                 </section>
                 <section className={`md:hidden`}>
-                    <Image src={heroSectionSrc} alt="hero section"/>
+                    <Image src={heroSectionSrc} alt="hero section" priority />
                 </section>
                 <section className={`max-w-xl mt-1`}>
                     <div className={`grid grid-cols-2`}>

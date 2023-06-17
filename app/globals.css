@@ -24,6 +24,10 @@ p, article {
   @apply font-normal;
 }
 
+button.mantine-UnstyledButton-root,button.mantine-Carousel-control {
+  background-color: #000!important;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;

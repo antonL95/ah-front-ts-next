@@ -4,6 +4,9 @@ import HeroSection from '@/ah/components/Home/HeroSection/HeroSection'
 import WhyArt from "@/ah/components/Home/WhyArt/WhyArt";
 import Benefits from "@/ah/components/Home/Benefits/Benefits";
 import BenefitsOfRenting from "@/ah/components/Home/BenefitsOfRenting/BenefitsOfRenting";
+import HowItWorks from "@/ah/components/Home/How/HowItWorks";
+import AboutUs from "@/ah/components/Home/About/AboutUs";
+import LatestArtwork from "@/ah/components/Home/Artwork/LatestArtwork";
 
 type Props = {
     params: {
@@ -21,6 +24,9 @@ const IndexPage = async ({params: {lang}}: Props) => {
             <WhyArt dictionary={dictionary}/>
             <Benefits dictionary={dictionary}/>
             <BenefitsOfRenting dictionary={dictionary}/>
+            <HowItWorks dictionary={dictionary}/>
+            <LatestArtwork dictionary={dictionary}/>
+            <AboutUs dictionary={dictionary}/>
         </>
     )
 }

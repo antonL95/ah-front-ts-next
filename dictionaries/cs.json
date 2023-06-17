@@ -14,7 +14,7 @@
   },
   "whyArt": {
     "headline": "Why Art",
-    "content": "Where we work from is a fundamental tenet of our identity. In the post-covid world, offices are increasingly competing with our homes, co-working hubs, cafés, and virtually any place with an internet connection.\nHowever, many people still want to come into offices. Observing the current trends, our time together in the workspace may typically be limited to a few days per week. How do we make the most of it? By making the time together an experience. What matters is an increased level of creativity, engagement, and mental well-being, in tandem with a high-energy working environment.\nWorkspaces are dramatically changing. Quality is winning over quantity. Only through designing experiential workspaces are companies able to attract, engage, and inspire high-performing talent. What role does art play in creating such an experience?\nAccording to research by International Art Consultants with the collaboration of British Council for Offices (BCO), the presence of art in the workplace enables higher levels of creativity, productivity, wellbeing & engagement and contributes positively to branding."
+    "content": "Where we work from is a fundamental tenet of our identity. In the post-covid world, offices are increasingly competing with our homes, co-working hubs, cafés, and virtually any place with an internet connection.\n\nHowever, many people still want to come into offices. Observing the current trends, our time together in the workspace may typically be limited to a few days per week. How do we make the most of it? By making the time together an experience. What matters is an increased level of creativity, engagement, and mental well-being, in tandem with a high-energy working environment.\n\nWorkspaces are dramatically changing. Quality is winning over quantity. Only through designing experiential workspaces are companies able to attract, engage, and inspire high-performing talent. What role does art play in creating such an experience?\n\nAccording to research by International Art Consultants with the collaboration of British Council for Offices (BCO), the presence of art in the workplace enables higher levels of creativity, productivity, wellbeing & engagement and contributes positively to branding."
   },
   "benefits": {
     "creativity": {
@@ -58,5 +58,55 @@
         "text": "It’s true, every business is unique, but each one goes through the same lifecycle. Whether your business has been just founded, is expanding like crazy, or scaling down, there may be a need for an art portfolio to reflect that particular stage and fit the current company’s needs. Renting art enables flexibility in scaling the portfolio. Need different art? Need more art or less art? No problem, we've got you covered."
       }
     ]
+  },
+  "howItWorks": {
+    "headline": "How it works",
+    "sections": [
+      {
+        "headline": "Tell us about your vision",
+        "number": "01",
+        "line": "down",
+        "text": "What's your vision for the look & feel of your workplace? What values does your brand stand for? How do you want to make your people feel? Once we understand your needs and vision, our art consultant will recommend artworks for your office - either from our portfolio, the market or artwork commissioned specially for you."
+      },
+      {
+        "headline": "Rent artworks",
+        "number": "02",
+        "line": "up",
+        "text": "Avoid high investments and the burden of ownership: curation, price evaluation, negotiation, logistics, insurance, etc. Rent the art on a monthly basis for as little as 5% to 10% of its original price. The art will be curated, delivered, installed, and insured by us. All-inclusive."
+      },
+      {
+        "headline": "Enjoy flexibility",
+        "number": "03",
+        "line": "down",
+        "text": "Enjoy the art for as long as you wish. Love it? Buy it for life. Bored? Swap it every 4 months or return it altogether."
+      },
+      {
+        "headline": "Power of higher purpose",
+        "number": "04",
+        "text": "While you're enjoying the art in your office, you're supporting Czech & Slovak emerging artists by showcasing their art and helping them achieve passive income. Every day is a good day to support someone and we believe that every artist deserves a hero."
+      }
+    ]
+  },
+  "about": {
+    "sections": [
+      {
+        "id": "about_us",
+        "headline": "About us",
+        "text": "Being exposed to the world of artists, I observed that many talented, hard-working artists deserve more attention and opportunity to live off their art. What's holding them back? Is it because these artists aren't creating good enough art? I don't think so. Sometimes there's no need for changing the product which is already unique and authentic, instead, the solution can be changing the business model - from selling art as a product to selling art as a service. That's how Artist's Hero was born.\n\nWe are passionate about art and excited about developing a meaningful and sustainable business. We are dedicated to serving both art lovers and artists to unlock a new value within contemporary art."
+      },
+      {
+        "id": "our_why",
+        "headline": "Our why",
+        "text": "We're all about making young, contemporary art more appreciated and allowing our workplaces to be more experiential. Artist's Hero is an art-sharing platform that empowers both artists and corporate art-lovers to unlock a new value in artworks simply by renting them.\n\nOur mission is to enable Czech & Slovak emerging artists to spread the ideas & energy of their art, reach new audiences, and ultimately achieve a passive income by renting their artworks. Through our consultancy and art-sharing services, organizations of all kinds enjoy the benefits of being exposed to art without the burden of ownership."
+      },
+      {
+        "id": "wrote_about_us",
+        "headline": "Wrote about us",
+        "text": ""
+      }
+    ]
+  },
+  "artworks": {
+    "headline": "Latest artwork"
   }
 }
