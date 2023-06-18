@@ -21,6 +21,7 @@ type artist = {
     name: string,
     profileImageUrl: string,
     products: artwork[],
+    href: string,
 };
 
 type artsists = artist[];
