@@ -15,12 +15,12 @@ type section = {
 
 const HowItWorks = (props: props) => {
     return <>
-        <Sections classStyle={`bg-white text-black`}>
+        <Sections classStyle={`bg-white text-black`} id={`how`}>
             <>
                 <h2 className={`text-5xl font-medium text-center`}>
                     {props.dictionary.howItWorks.headline}
                 </h2>
-                <div className={`container mx-auto md:grid md:grid-cols-4 md:pt-48`}>
+                <div className={`container mx-auto md:grid md:grid-cols-4 md:pt-24`}>
                     {
                         props.dictionary.howItWorks.sections.map((section: section) => {
                             return (

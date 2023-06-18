@@ -12,11 +12,11 @@ type WhyArt = {
 const WhyArt = ({dictionary}:WhyArt) => {
     return <Sections classStyle={`bg-black text-white`} id={`why`}>
         <div className={`container md:w-9/12 mx-auto grid grid-cols-1 md:flex md:flex-col md:justify-between`}>
-            <h2 className={`text-5xl font-medium`}>
+            <h2 className={`text-5xl font-medium text-center`}>
                 {dictionary.whyArt.headline}
             </h2>
             <Image src={imgSrc} alt={dictionary.whyArt.headline} className={`mt-4 md:self-center md:mt-20`} />
-            <article className={`hidden md:block whitespace-pre-line md:w-6/12 md:self-end md:mt-16`}>
+            <article className={`hidden md:block whitespace-pre-line md:w-9/12 md:mt-16`}>
                 {dictionary.whyArt.content}
             </article>
             <SpoilerExtension

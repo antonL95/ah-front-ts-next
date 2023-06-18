@@ -10,7 +10,9 @@ import LatestArtwork from "@/ah/components/Home/Artwork/LatestArtwork";
 import Link from "next/link";
 import Image from "next/image";
 import React from "react";
-import {carouselItems} from "@/ah/utils/type";
+import {artworks, carouselItems} from "@/ah/utils/type";
+import * as qs from "qs";
+import {fetchData} from "@/ah/utils/fetch-helper";
 
 type Props = {
     params: {
@@ -19,34 +21,29 @@ type Props = {
 }
 export const runtime = 'edge';
 
-type artwork = {
-    imageUrl: string,
-    href: string,
-    name: string,
-    id: string | number
-}
-type artworks = artwork[];
-
 async function getData() {
-    const res = await fetch('https://api.artistshero.com/en/api/products')
+    const query = qs.stringify({
+        "populate": "images",
+    })
+    const res = await fetchData('products', query);
 
-    // Recommendation: handle errors
     if (!res.ok) {
-        // This will activate the closest `error.js` Error Boundary
-        throw new Error('Failed to fetch data')
+        throw new Error('Failed to fetch data');
     }
+
     const data = await res.json();
 
     const returnData: artworks = [];
 
-    for (const item of data) {
-        const href = item["id_product"];
+    for (const item of data.data) {
+        const itemAttr = item.attributes;
+        const thumbnail = itemAttr.images.data[0].attributes.formats.thumbnail;
         returnData.push(
             {
-                "id": item["id_product"],
-                "imageUrl": item.image,
-                "name": item.name,
-                "href": href,
+                "id": item.id,
+                "imageUrl": thumbnail.url,
+                "name": itemAttr.name,
+                "href": item.id,
             },
         )
     }
@@ -57,23 +54,32 @@ async function getData() {
 const IndexPage = async ({params: {lang}}: Props) => {
     const dictionary = await getDictionary(lang)
 
+    let data: undefined | artworks;
 
+    try {
+        data = await getData();
+    } catch (err) {
+        console.log(err);
+        data = undefined;
+    }
 
-    const data: artworks = await getData();
     const carouselItems: carouselItems = [];
 
-    for (const item of data) {
-        carouselItems.push(
-            {
-                "id": item.id,
-                "element": <Link href={`/gallery/products/${item.id}`} key={`${item.id}-link`}>
-                    <div key={`${item.id}-div`}>
-                        <Image src={item.imageUrl} alt={item.name} width={300} height={300} key={`${item.id}-image`}/>
-                        <h2 key={`${item.id}-h2`} className={`text-center text-2xl`}>{item.name}</h2>
-                    </div>
-                </Link>,
-            }
-        )
+    if (data !== undefined) {
+        for (const item of data) {
+            carouselItems.push(
+                {
+                    "id": item.id,
+                    "element": <Link href={`/gallery/products/${item.id}`} key={`${item.id}-link`}>
+                        <div key={`${item.id}-div`}>
+                            <Image src={item.imageUrl} alt={item.name} width={300} height={300}
+                                   key={`${item.id}-image`}/>
+                            <h2 key={`${item.id}-h2`} className={`text-center text-2xl`}>{item.name}</h2>
+                        </div>
+                    </Link>,
+                },
+            )
+        }
     }
 
     return (

@@ -37,7 +37,7 @@ const NavigationBar = ({dictionary}: NavbarProps) => {
                 </div>
                 <div className={`${opened ? 'block' : 'hidden'} md:block`}>
                     <div className={`grid grid-cols-1 p-4 md:flex md:flex-row md:justify-between`}>
-                        <NavigationHash close={close} className={`md:hidden text-center`}/>
+                        <NavigationHash close={close} className={`md:hidden text-center`} dictionary={dictionary}/>
                         <GalleryButton close={close} dictionary={dictionary}
                                        classStyles={`bg-white text-black border-black border hover:bg-black hover:text-white`}/>
                         <ContactModalWithNavigationButton dictionary={dictionary} onClick={close}

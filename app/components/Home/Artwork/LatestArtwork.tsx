@@ -12,7 +12,7 @@ type props = {
 
 const LatestArtwork = (props: props) => {
     return <>
-        <Sections classStyle={`bg-white text-black`}>
+        <Sections classStyle={`bg-white text-black py-0`} id={`latest`}>
             <>
                 <div className={`container mx-auto`}>
                     <h2 className={`text-5xl font-medium`}>{props.dictionary.artworks.headline}</h2>

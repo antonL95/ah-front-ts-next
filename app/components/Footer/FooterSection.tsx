@@ -33,7 +33,7 @@ const FooterSection = ({dictionary}: Props) => {
                         <Image src={marekImage} alt={`ceo`} className={`mx-auto mb-10 w-6/12`}/>
                         Marek Jakúbek, Founder & CEO
                     </h2>
-                    <p className={`grid grid-cols-2`}>
+                    <p className={`md:grid md:grid-cols-2 flex flex-col`}>
                         <span className={`text-center`}>
                             <a href={`mailto:marek@artistshero.com`} className={`text-lg underline text-center w-full p-2.5`}>marek@artistshero.com</a>
                         </span>

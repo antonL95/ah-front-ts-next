@@ -39,12 +39,12 @@ const Benefits = ({dictionary}: Benefits) => {
         sections.push(
             <React.Fragment key={`${key}-${(new Date).getTime()}-wrapper`}>
                 {key === 'identity' ? <Image key={`${key}-${(new Date).getTime()}-image1`} src={benefitImage1}
-                                             alt={key} className={`mt-16 md:mt-44`}/> : ""}
-                <div className={`flex mt-16 md:mt-44 md:w-8/12`}>
-                    <div className={`w-[32px]`}>
+                                             alt={key} className={`mt-16 md:mt-20`}/> : ""}
+                <div className={`flex mt-16 md:mt-20 md:w-8/12`}>
+                    <div className={`pl-2 md:pl-0 w-[32px]`}>
                         {choseIcon(key)}
                     </div>
-                    <div className={`pl-5`} key={`${key}-${(new Date).getTime()}-div`}>
+                    <div className={`px-5`} key={`${key}-${(new Date).getTime()}-div`}>
                         <h2 className={`flex flex-row text-2xl`} key={`${key}-${(new Date).getTime()}-h2`}>
                             {value.headline}
                         </h2>
@@ -73,15 +73,15 @@ const Benefits = ({dictionary}: Benefits) => {
                     </div>
                 </div>
                 {key === 'csr' ? <Image key={`${key}-${(new Date).getTime()}-image2`} src={benefitImage2}
-                                        alt={key} className={`mt-16 md:mt-44`}/> : ""}
+                                        alt={key} className={`mt-16 md:mt-20`}/> : ""}
             </React.Fragment>,
         )
     }
 
 
     return <>
-        <Sections classStyle={`bg-white text-black md:pt-0`}>
-            <div className={`grid grid-cols-1 mx-auto md:grid-cols-2 md:justify-items-center `}>
+        <Sections classStyle={`bg-white text-black md:pt-0`} id={`benefits`}>
+            <div className={`grid grid-cols-1 mx-auto md:grid-cols-2 md:justify-items-center`}>
                 {sections}
             </div>
         </Sections>

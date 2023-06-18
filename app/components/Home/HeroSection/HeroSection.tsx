@@ -10,7 +10,7 @@ type params = {
 const HeroSection = ({dictionary}: params) => {
     return (
         <div className={`md:flex relative md:h-[730px]`} id={`intro`}>
-            <Image src={heroSectionSrc} alt="hero section" className={`hidden md:block absolute top-0 right-0`}/>
+            <Image src={heroSectionSrc} alt="hero section" className={`hidden md:block absolute top-0 right-0`} priority />
             <div className={`container mx-auto`}>
                 <section className={`max-w-3xl mt-10 md:mt-24`}>
                     <h1 className={`text-[2rem] md:text-7xl font-medium whitespace-pre-line md:whitespace-normal`}>
@@ -39,14 +39,6 @@ const HeroSection = ({dictionary}: params) => {
                 </section>
                 <section className={`md:hidden`}>
                     <Image src={heroSectionSrc} alt="hero section" priority />
-                </section>
-                <section className={`max-w-xl mt-1`}>
-                    <div className={`grid grid-cols-2`}>
-                        <div>first partner</div>
-                        <div>first partner</div>
-                        <div>first partner</div>
-                        <div>first partner</div>
-                    </div>
                 </section>
             </div>
         </div>

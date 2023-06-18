@@ -6,7 +6,7 @@ type SectionsProps = {
     id?: string;
 }
 const Sections = ({children, classStyle, id}: SectionsProps) => {
-    return <section className={`${classStyle} py-16 md:py-48`} id={id}>
+    return <section className={`${classStyle} py-4 md:py-16`} id={id}>
         {children}
     </section>
 }

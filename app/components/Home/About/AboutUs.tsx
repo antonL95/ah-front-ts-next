@@ -37,15 +37,15 @@ const AboutUs = (props: props) => {
     }
 
     return <>
-        <Sections classStyle={`bg-white text-black`}>
+        <Sections classStyle={`bg-white text-black pt-0`} id={`about`}>
             <>
                 <div className={`container mx-auto md:grid md:grid-cols-3`}>
                     {
                         props.dictionary.about.sections.map((section: section) => {
                             return (
                                 <>
-                                    <div className={`md:px-1`} key={section.headline}>
-                                        <h3 className={`pb-8 text-3xl font-medium md:pr-16`}>{section.headline}</h3>
+                                    <div className={`md:px-1 py-3`} key={section.headline}>
+                                        <h3 className={`pb-3 text-3xl font-medium md:pr-16`}>{section.headline}</h3>
                                         <p className={`md:pr-20 whitespace-pre-line`}>{section.text}</p>
                                         {
                                             section.id === "wrote_about_us"

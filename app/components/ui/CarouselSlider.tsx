@@ -1,6 +1,5 @@
 'use client'
 
-import {ReactElement} from "react";
 import {Carousel} from '@mantine/carousel';
 import {carouselItems} from "@/ah/utils/type";
 import {useMediaQuery} from "@mantine/hooks";
@@ -36,6 +35,10 @@ const CarouselSlider = (props: props) => {
         slidesToScroll={mobile ? 1 : 2}
         nextControlIcon={<IconArrowRight size={16} className={`bg-black`} color={`#fff`}/>}
         previousControlIcon={<IconArrowLeft size={16} className={`bg-black`} color={`#fff`}/>}
+        breakpoints={[
+            { maxWidth: 'md', slideSize: '50%' },
+            { maxWidth: 'sm', slideSize: '100%', slideGap: 0 },
+        ]}
     >
         {props.items.map((item) => {
             return <Carousel.Slide key={`${(new Date().getTime())}-${item.id}`}>{item.element}</Carousel.Slide>;
