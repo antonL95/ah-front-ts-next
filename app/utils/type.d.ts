@@ -25,3 +25,10 @@ type artist = {
 };
 
 type artsists = artist[];
+
+type filter = {
+    type: string,
+    values: string[],
+}
+
+type filters = filter[];
