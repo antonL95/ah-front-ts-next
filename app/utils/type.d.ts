@@ -32,3 +32,10 @@ type filter = {
 }
 
 type filters = filter[];
+
+type ContactFormData = {
+    name: string;
+    email: string;
+    subject: string;
+    message: string;
+}

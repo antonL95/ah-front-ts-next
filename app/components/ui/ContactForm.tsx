@@ -1,11 +1,8 @@
 import React, {useState} from 'react';
+import {ContactFormData} from "@/ah/utils/type";
+import {sendMail} from "@/ah/actions/sendMailAction";
 
-type ContactFormData = {
-    name: string;
-    email: string;
-    subject: string;
-    message: string;
-}
+
 
 const ContactForm: React.FC = () => {
     const [formData, setFormData] = useState<ContactFormData>({
@@ -23,9 +20,21 @@ const ContactForm: React.FC = () => {
         );
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        console.log(formData);
+
+        const res = await fetch('/api/',
+            {
+                method: "POST",
+                body: JSON.stringify(formData),
+            })
+
+        if (!res.ok) {
+            console.log('error');
+        }
+
+        const data = await res.json();
+        console.log(data);
     };
 
     return (
