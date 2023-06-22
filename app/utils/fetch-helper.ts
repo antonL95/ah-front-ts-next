@@ -60,9 +60,11 @@ export const fetchArtistsWithProducts = async (lang: string) => {
         }
 
         const productData = await productRes.json();
+
         if (productData.data.length <= 0) {
             continue;
         }
+
         for (const product of productData.data) {
             const itemAttr = product.attributes;
             const thumbnail = itemAttr.images.data[0].attributes.formats.thumbnail;
