@@ -1,17 +1,18 @@
 import * as qs from "qs";
 import {artsists, artworks, filter, filters} from "@/ah/utils/type";
 
-export const fetchData = async (endpoint: string, query: string) => {
+export const fetchData = async (endpoint: string, query: string, options = {}) => {
     const res = await fetch(
-        `${process.env.apiHost}/${endpoint}?${query}`,
+        `${process.env.STRAPI_URL}/${endpoint}?${query}`,
         {
             headers: {
-                "Authorization": `Bearer ${process.env.apiKey}`,
+                "Authorization": `Bearer ${process.env.STRAPI_KEY}`,
             },
+            ...options,
         });
 
     if (!res.ok) {
-        throw new Error(`Unsuccessful request : ${process.env.apiHost}/${endpoint}?${query}`)
+        throw new Error(`Unsuccessful request : ${process.env.STRAPI_URL}/${endpoint}?${query}`)
     }
 
     return res;
@@ -37,9 +38,11 @@ export const fetchArtistsWithProducts = async (lang: string) => {
                 "populate": [
                     "images",
                 ],
-                "filter": {
+                "filters": {
                     artist: {
-                        $eq: item.id,
+                        id: {
+                            $eq: item.id,
+                        },
                     },
                 },
             },
@@ -48,21 +51,29 @@ export const fetchArtistsWithProducts = async (lang: string) => {
             },
         );
 
-        const productRes = await fetchData('products', itemQuery);
-
-        if (!res.ok) {
+        const products: artworks = [];
+        let productRes;
+        try {
+            productRes = await fetchData('products', itemQuery, {next: {revalidate: 0}});
+        } catch (err) {
             continue;
         }
 
         const productData = await productRes.json();
-        const products: artworks = [];
+        if (productData.data.length <= 0) {
+            continue;
+        }
         for (const product of productData.data) {
             const itemAttr = product.attributes;
             const thumbnail = itemAttr.images.data[0].attributes.formats.thumbnail;
             products.push(
                 {
                     "id": product.id,
-                    "imageUrl": thumbnail.url,
+                    "image": {
+                        url: thumbnail.url,
+                        width: thumbnail.width,
+                        height: thumbnail.height,
+                    },
                     "name": itemAttr.name,
                     "href": product.id,
                 },

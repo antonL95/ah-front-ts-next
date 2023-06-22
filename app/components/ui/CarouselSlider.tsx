@@ -17,21 +17,22 @@ const CarouselSlider = (props: props) => {
     const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
     return <Carousel
         slideSize="20%"
-        height={350}
         align="start"
         slideGap="xs"
         controlsOffset="xs"
         dragFree
-        styles={{
-            control: {
-                '&[data-inactive]': {
-                    opacity: 0,
-                    cursor: 'default',
+        styles={
+            {
+                control: {
+                    '&[data-inactive]': {
+                        opacity: 0,
+                        cursor: 'default',
+                    },
+                    backgroundColor: "#000",
+                    border: "1px solid #000",
                 },
-                backgroundColor: "#000",
-                border: "1px solid #000"
-            },
-        }}
+            }
+        }
         slidesToScroll={mobile ? 1 : 2}
         nextControlIcon={<IconArrowRight size={16} className={`bg-black`} color={`#fff`}/>}
         previousControlIcon={<IconArrowLeft size={16} className={`bg-black`} color={`#fff`}/>}
@@ -41,7 +42,7 @@ const CarouselSlider = (props: props) => {
         ]}
     >
         {props.items.map((item) => {
-            return <Carousel.Slide key={`${(new Date().getTime())}-${item.id}`}>{item.element}</Carousel.Slide>;
+            return <Carousel.Slide key={`${(new Date().getTime())}-${item.id}`} className={`flex justify-items-center`}>{item.element}</Carousel.Slide>;
         })}
     </Carousel>;
 }

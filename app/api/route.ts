@@ -8,12 +8,12 @@ export async function POST(request: Request) {
     const body:ContactFormData = await request.json();
 
     const msg = {
-        to: 'loginovanton95@gmail.com',
+        to: ['marek@artistshero.com', 'admin@artistshero.com'],
         from: 'web@artistshero.com',
         replyTo: body.email,
-        subject: body.subject,
+        subject: `[WEB REQUEST] - ${body.subject} FROM: ${body.email}`,
         text: body.message,
-        html: `<p>${body.message}</p><p>${body.name}</p>`,
+        html: `<p>${body.message}</p><p>From: ${body.name}</p>`,
     }
 
     try {

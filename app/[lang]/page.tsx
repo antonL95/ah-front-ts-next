@@ -41,7 +41,11 @@ async function getData() {
         returnData.push(
             {
                 "id": item.id,
-                "imageUrl": thumbnail.url,
+                "image": {
+                    url: thumbnail.url,
+                    width: thumbnail.width,
+                    height: thumbnail.height,
+                },
                 "name": itemAttr.name,
                 "href": item.id,
             },
@@ -72,7 +76,9 @@ const IndexPage = async ({params: {lang}}: Props) => {
                     "id": item.id,
                     "element": <Link href={`/gallery/products/${item.id}`} key={`${item.id}-link`}>
                         <div key={`${item.id}-div`}>
-                            <Image src={item.imageUrl} alt={item.name} width={300} height={300}
+                            <Image src={item.image.url} alt={item.name}
+                                   width={item.image.width}
+                                   height={item.image.height}
                                    key={`${item.id}-image`}/>
                             <h2 key={`${item.id}-h2`} className={`text-center text-2xl`}>{item.name}</h2>
                         </div>

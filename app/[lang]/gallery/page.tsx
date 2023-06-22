@@ -26,7 +26,7 @@ const IndexPage = async (props: props) => {
         <>
             {data.map(
                 (artist) => {
-                    return <div key={artist.id}>
+                    return <div key={artist.id} className={`even:bg-white odd:bg-gray`}>
                         <GalleryRow artist={artist}/>
                     </div>;
                 },

@@ -8,7 +8,11 @@ type carouselItem = {
 type carouselItems = carouselItem[];
 
 type artwork = {
-    imageUrl: string,
+    image: {
+        url: string,
+        width: number,
+        height: number,
+    },
     href: string,
     name: string,
     id: string | number
