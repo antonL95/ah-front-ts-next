@@ -1,25 +1,24 @@
-import {useEffect, useState} from "react"
-import {createPortal} from "react-dom"
-import {ReactNode} from "react"
-import React from "react"
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
+import { ReactNode } from "react";
+import React from "react";
 
 type PortalProps = {
-    children?: ReactNode
-}
+  children?: ReactNode;
+};
 
-const Portal = ({children}: PortalProps) => {
-    const [mounted, setMounted] = useState(false)
+const Portal = ({ children }: PortalProps) => {
+  const [mounted, setMounted] = useState(false);
 
-    useEffect(() => {
-        setMounted(true)
+  useEffect(() => {
+    setMounted(true);
 
-        return () => setMounted(false)
-    }, [])
+    return () => setMounted(false);
+  }, []);
 
-    return !mounted ? null :
-        createPortal(children,
-            document.querySelector(`#portals`) as HTMLElement
-        )
-}
+  return !mounted
+    ? null
+    : createPortal(children, document.querySelector(`#portals`) as HTMLElement);
+};
 
-export default Portal
+export default Portal;

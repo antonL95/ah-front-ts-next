@@ -1,3 +1,1 @@
-export const changeFilterAction = () => {
-
-}
+export const changeFilterAction = () => {};
