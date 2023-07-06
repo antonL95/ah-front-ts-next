@@ -10,6 +10,7 @@ import Link from "next/link";
 import { BreadcrumbsWrapper } from "@/ah/components/ui/BreadcrumbWrapper";
 import { RentButton } from "@/ah/components/ui/RentButton";
 import GalleryRow from "@/ah/components/ui/GalleryRow";
+import { EditorJsWrapper } from "@/ah/components/ui/EditorJsWrapper";
 
 export const runtime = "edge";
 
@@ -129,7 +130,7 @@ const IndexPage = async (props: props) => {
             <p className="text-gray-60 uppercase text-sm mt-8">
               {dictionary.gallery.productDetail.description}
             </p>
-            <Output>{product.description}</Output>
+            <EditorJsWrapper data={JSON.parse(product.description)}/>
             <div className="my-8">
               <RentButton product={product} dictionary={dictionary} />
             </div>

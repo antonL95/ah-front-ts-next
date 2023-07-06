@@ -8,6 +8,7 @@ import GalleryRow from "@/ah/components/ui/GalleryRow";
 import CarouselSlider from "@/ah/components/ui/CarouselSlider";
 import { carouselItems } from "@/ah/utils/type";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
+import { EditorJsWrapper } from "@/ah/components/ui/EditorJsWrapper";
 
 export const runtime = "edge";
 
@@ -54,7 +55,6 @@ const IndexPage = async (props: props) => {
       };
     });
   }
-
   return (
     <>
       <div className={`relative -z-50`}>
@@ -85,7 +85,7 @@ const IndexPage = async (props: props) => {
         <h1 className={`text-5xl text-black`}>{artist.name}</h1>
         <div className={`md:grid md:grid-cols-2`}>
           <div>
-            {artist.bio !== undefined ? <Output>{artist.bio}</Output> : null}
+            {artist.bio !== undefined ? <EditorJsWrapper data={JSON.parse(artist.bio)}/> : null}
           </div>
           {otherImages.length > 0 ? (
             <div>
