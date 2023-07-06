@@ -9,6 +9,7 @@ import CarouselSlider from "@/ah/components/ui/CarouselSlider";
 
 type props = {
   artist: artist;
+  withoutAvatar?: boolean;
 };
 const GalleryRow = (props: props) => {
   const carouselItems: carouselItems = [];
@@ -39,13 +40,22 @@ const GalleryRow = (props: props) => {
   }
   return (
     <div className={`md:py-8`}>
-      <div className={`flex px-5 pb-5`}>
-        <Avatar radius={"xl"} size={"lg"} src={props.artist.profileImageUrl} />
-        <Link href={`/gallery/artists/${props.artist.href}`}>
-          <span className={`align-middle`}>{props.artist.name}</span>
-        </Link>
-      </div>
-      <div>
+      {props.withoutAvatar ? null : (
+        <div className={`flex px-5 pb-5`}>
+          <Image
+            src={props.artist.profileImageUrl.url}
+            alt={props.artist.name}
+            height={props.artist.profileImageUrl.height}
+            width={props.artist.profileImageUrl.width}
+            className={`rounded-full w-[80px] h-[80px]`}
+          />
+          <Link href={`/gallery/artists/${props.artist.href}`}>
+            <span className={`align-middle`}>{props.artist.name}</span>
+          </Link>
+        </div>
+      )}
+
+      <div className={`md:container md:mx-auto`}>
         <CarouselSlider items={carouselItems} />
       </div>
     </div>

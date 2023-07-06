@@ -1,5 +1,6 @@
 import * as qs from "qs";
 import {
+  artist,
   artsists,
   artwork,
   artworks,
@@ -100,7 +101,11 @@ export const fetchArtistsWithProducts = async (lang: string) => {
 
     artists.push({
       id: item.id,
-      profileImageUrl: thumbnail.url,
+      profileImageUrl: {
+        url: thumbnail.url,
+        width: thumbnail.width,
+        height: thumbnail.height,
+      },
       name: itemAttr.name,
       products: products,
       href: item.id,
@@ -202,4 +207,140 @@ export const fetchProduct = async (lang: string, id: number | string) => {
   };
 
   return product;
+};
+
+export const fetchArtistWithProducts = async (
+  lang: string,
+  id: number | string,
+  productId?: number | string,
+  options?:any,
+) => {
+  const query = qs.stringify(
+    {
+      filters: {
+        id: {
+          $eq: id,
+        },
+      },
+      populate: '*',
+      locale: [lang],
+    },
+    {
+      encodeValuesOnly: true,
+    }
+  );
+
+  const res = await fetchData("artists", query, options);
+
+  const data = await res.json();
+
+  if (data.data.length <= 0) {
+    return;
+  }
+
+  const item = data.data[0];
+
+  type filter = {
+    id?: any;
+    artist: {
+      id: {
+        $eq: number | string;
+      };
+    };
+  };
+
+  let itemQueryFileter: filter = {
+    artist: {
+      id: {
+        $eq: item.id,
+      },
+    },
+  };
+
+  if (productId) {
+    itemQueryFileter = {
+      ...itemQueryFileter,
+      id: {
+        $ne: productId,
+      },
+    };
+  }
+
+  const itemQuery = qs.stringify(
+    {
+      populate: ["images"],
+      locale: [lang],
+      filters: itemQueryFileter,
+    },
+    {
+      encodeValuesOnly: true,
+    }
+  );
+
+  const products: artworks = [];
+  let productRes;
+
+  try {
+    productRes = await fetchData("products", itemQuery, {
+      next: { revalidate: 0 },
+    });
+  } catch (err) {
+    return;
+  }
+
+  const productData = await productRes.json();
+
+  if (productData.data.length <= 0) {
+    return;
+  }
+
+  for (const product of productData.data) {
+    const itemAttr = product.attributes;
+    const thumbnail = itemAttr.images.data[0].attributes.formats.thumbnail;
+    products.push({
+      id: product.id,
+      image: {
+        url: thumbnail.url,
+        width: thumbnail.width,
+        height: thumbnail.height,
+      },
+      name: itemAttr.name,
+      href: product.id,
+    });
+  }
+
+  const artistAttr = item.attributes;
+  const thumbnailProfile = artistAttr.profileImage.data.attributes.formats.thumbnail;
+  const coverImage = artistAttr.coverImage.data.attributes.formats.large;
+  const otherImages = [];
+  if (artistAttr.otherImages.data !== null && artistAttr.otherImages.data.length > 0) {
+    for (const image of artistAttr.otherImages.data) {
+      otherImages.push({
+        url: image.attributes.formats.large.url,
+        width: image.attributes.formats.large.width,
+        height: image.attributes.formats.large.height,
+      });
+    }
+  }
+
+  const artist: artist = {
+    id: item.id,
+    profileImageUrl: {
+      url: thumbnailProfile.url,
+      width: thumbnailProfile.width,
+      height: thumbnailProfile.height,
+    },
+    coverImageUrl: {
+      url: coverImage.url,
+      width: coverImage.width,
+      height: coverImage.height,
+    },
+    otherImages: otherImages,
+    name: artistAttr.name,
+    bio: artistAttr.bio,
+    products: products,
+    href: item.id,
+  };
+
+  return artist;
 };

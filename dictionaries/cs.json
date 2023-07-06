@@ -117,5 +117,17 @@
   },
   "artworks": {
     "headline": "Latest artwork"
+  },
+  "gallery": {
+    "productDetail": {
+      "breadcrumb": {
+        "home": "All artworks"
+      },
+      "description": "About the artwork",
+      "rent": "Rent"
+    },
+    "artistDetail": {
+      "artworks": "Artworks"
+    }
   }
 }

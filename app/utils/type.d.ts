@@ -7,12 +7,14 @@ type carouselItem = {
 
 type carouselItems = carouselItem[];
 
+type image = {
+  url: string;
+  width: number;
+  height: number;
+};
+
 type artwork = {
-  image: {
-    url: string;
-    width: number;
-    height: number;
-  };
+  image: image;
   href: string;
   name: string;
   id: string | number;
@@ -23,8 +25,11 @@ type artworks = artwork[];
 type artist = {
   id: string | number;
   name: string;
-  profileImageUrl: string;
+  profileImageUrl: image;
+  coverImageUrl?: image;
+  otherImages?: image[];
   products: artwork[];
+  bio?: string;
   href: string;
 };
 
@@ -47,12 +52,6 @@ type ContactFormData = {
 type singularFilter = {
   type: string;
   value: string;
-};
-
-type image = {
-  url: string;
-  width: number;
-  height: number;
 };
 
 type detailArtwork = {
