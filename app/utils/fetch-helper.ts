@@ -2,14 +2,13 @@ import * as qs from "qs";
 import {
   artist,
   artsists,
-  artwork,
   artworks,
   detailArtwork,
-  filter,
   filters,
   image,
   singularFilter,
 } from "@/ah/utils/type";
+import { draftMode } from 'next/headers'
 
 export const fetchData = async (
   endpoint: string,
@@ -33,8 +32,17 @@ export const fetchData = async (
 };
 
 export const fetchArtistsWithProducts = async (lang: string) => {
+  let publicationState = {}
+  const { isEnabled } = draftMode()
+
+  if (isEnabled) {
+    publicationState = {
+      publicationState: 'preview',
+    }
+  }
   const query = qs.stringify(
     {
+      ...publicationState,
       populate: ["profileImage"],
       locale: [lang],
     },
@@ -50,6 +58,7 @@ export const fetchArtistsWithProducts = async (lang: string) => {
   for (const item of data.data) {
     const itemQuery = qs.stringify(
       {
+        ...publicationState,
         populate: ["images"],
         locale: [lang],
         filters: {
@@ -116,8 +125,17 @@ export const fetchArtistsWithProducts = async (lang: string) => {
 };
 
 export const fetchFiltersAndValues = async (lang: string) => {
+  let publicationState = {}
+  const { isEnabled } = draftMode()
+
+  if (isEnabled) {
+    publicationState = {
+      publicationState: 'preview',
+    }
+  }
   const query = qs.stringify(
     {
+      ...publicationState,
       populate: ["*"],
       pagination: {
         limit: 1000,
@@ -158,8 +176,19 @@ export const fetchFiltersAndValues = async (lang: string) => {
 };
 
 export const fetchProduct = async (lang: string, id: number | string) => {
+  let publicationState = {}
+  const { isEnabled } = draftMode()
+
+  console.log(isEnabled)
+
+  if (isEnabled) {
+    publicationState = {
+      publicationState: 'preview',
+    }
+  }
   const query = qs.stringify(
     {
+      ...publicationState,
       populate: ["images", "artist", "filters"],
       locale: [lang],
       filters: {
@@ -215,8 +244,17 @@ export const fetchArtistWithProducts = async (
   productId?: number | string,
   options?:any,
 ) => {
+  let publicationState = {}
+  const { isEnabled } = draftMode()
+
+  if (isEnabled) {
+    publicationState = {
+      publicationState: 'preview',
+    }
+  }
   const query = qs.stringify(
     {
+      ...publicationState,
       filters: {
         id: {
           $eq: id,
@@ -268,6 +306,7 @@ export const fetchArtistWithProducts = async (
 
   const itemQuery = qs.stringify(
     {
+      ...publicationState,
       populate: ["images"],
       locale: [lang],
       filters: itemQueryFileter,
@@ -281,9 +320,7 @@ export const fetchArtistWithProducts = async (
   let productRes;
 
   try {
-    productRes = await fetchData("products", itemQuery, {
-      next: { revalidate: 0 },
-    });
+    productRes = await fetchData("products", itemQuery);
   } catch (err) {
     return;
   }

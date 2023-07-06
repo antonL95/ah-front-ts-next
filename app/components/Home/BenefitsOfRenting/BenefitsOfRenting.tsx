@@ -39,38 +39,6 @@ const BenefitsOfRenting = (props: props) => {
             }
           )}
         </div>
-        <div className={`hidden md:grid md:grid-cols-6 md:pt-48`}>
-          <Image
-            src={image1}
-            alt={`image1`}
-            className={`md: h-[300px] object-cover`}
-          />
-          <Image
-            src={image2}
-            alt={`image2`}
-            className={`md: h-[300px] object-cover`}
-          />
-          <Image
-            src={image3}
-            alt={`image3`}
-            className={`md: h-[300px] object-cover`}
-          />
-          <Image
-            src={image4}
-            alt={`image4`}
-            className={`md: h-[300px] object-cover`}
-          />
-          <Image
-            src={image5}
-            alt={`image5`}
-            className={`md: h-[300px] object-cover`}
-          />
-          <Image
-            src={image6}
-            alt={`image6`}
-            className={`md: h-[300px] object-cover`}
-          />
-        </div>
       </>
     </Sections>
   );

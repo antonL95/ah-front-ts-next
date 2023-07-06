@@ -1,7 +1,7 @@
 import { getDictionary } from "@/ah/../get-directories";
 import { Locale } from "@/ah/../i18n-config";
 import { fetchArtistWithProducts, fetchProduct } from "@/ah/utils/fetch-helper";
-import ReactMarkdown from "react-markdown";
+import Output from "editorjs-react-renderer";
 import Image from "next/image";
 import { carouselItems } from "@/ah/utils/type";
 import CarouselSlider from "@/ah/components/ui/CarouselSlider";
@@ -129,7 +129,7 @@ const IndexPage = async (props: props) => {
             <p className="text-gray-60 uppercase text-sm mt-8">
               {dictionary.gallery.productDetail.description}
             </p>
-            <ReactMarkdown>{product.description}</ReactMarkdown>
+            <Output>{product.description}</Output>
             <div className="my-8">
               <RentButton product={product} dictionary={dictionary} />
             </div>

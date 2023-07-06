@@ -3,7 +3,7 @@ import { Locale } from "@/ah/../i18n-config";
 import { fetchArtistWithProducts } from "@/ah/utils/fetch-helper";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import ReactMarkdown from "react-markdown";
+import Output from "editorjs-react-renderer";
 import GalleryRow from "@/ah/components/ui/GalleryRow";
 import CarouselSlider from "@/ah/components/ui/CarouselSlider";
 import { carouselItems } from "@/ah/utils/type";
@@ -85,7 +85,7 @@ const IndexPage = async (props: props) => {
         <h1 className={`text-5xl text-black`}>{artist.name}</h1>
         <div className={`md:grid md:grid-cols-2`}>
           <div>
-            <ReactMarkdown>{artist.bio}</ReactMarkdown>
+            {artist.bio !== undefined ? <Output>{artist.bio}</Output> : null}
           </div>
           {otherImages.length > 0 ? (
             <div>
