@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { ContactFormData } from "@/ah/utils/type";
 const nodemailer = require("nodemailer");
 
+export const runtime = "edge";
 export async function POST(request: Request) {
   const body: ContactFormData = await request.json();
 

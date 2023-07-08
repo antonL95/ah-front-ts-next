@@ -12,7 +12,7 @@ import Image from "next/image";
 import React from "react";
 import { artworks, carouselItems } from "@/ah/utils/type";
 import * as qs from "qs";
-import { fetchData } from "@/ah/utils/fetch-helper";
+import { fetchData, fetchLatestProducts } from "@/ah/utils/fetch-helper";
 
 type Props = {
   params: {
@@ -21,74 +21,32 @@ type Props = {
 };
 export const runtime = "edge";
 
-async function getData() {
-  const query = qs.stringify({
-    populate: "images",
-  });
-  const res = await fetchData("products", query);
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
-  const data = await res.json();
-
-  const returnData: artworks = [];
-
-  for (const item of data.data) {
-    const itemAttr = item.attributes;
-    const thumbnail = itemAttr.images.data[0].attributes.formats.thumbnail;
-    returnData.push({
-      id: item.id,
-      image: {
-        url: thumbnail.url,
-        width: thumbnail.width,
-        height: thumbnail.height,
-      },
-      name: itemAttr.name,
-      href: item.id,
-    });
-  }
-
-  return returnData;
-}
-
 const IndexPage = async ({ params: { lang } }: Props) => {
   const dictionary = await getDictionary(lang);
 
-  let data: undefined | artworks;
-
-  try {
-    data = await getData();
-  } catch (err) {
-    console.log(err);
-    data = undefined;
-  }
+  const data = await fetchLatestProducts(lang);
 
   const carouselItems: carouselItems = [];
-
-  if (data !== undefined) {
-    for (const item of data) {
-      carouselItems.push({
-        id: item.id,
-        element: (
-          <Link href={`/gallery/products/${item.id}`} key={`${item.id}-link`}>
-            <div key={`${item.id}-div`}>
-              <Image
-                src={item.image.url}
-                alt={item.name}
-                width={item.image.width}
-                height={item.image.height}
-                key={`${item.id}-image`}
-              />
-              <h2 key={`${item.id}-h2`} className={`text-center text-2xl`}>
-                {item.name}
-              </h2>
-            </div>
-          </Link>
-        ),
-      });
-    }
+  for (const item of data) {
+    carouselItems.push({
+      id: item.id,
+      element: (
+        <Link href={`/gallery/products/${item.id}`} key={`${item.id}-link`}>
+          <div key={`${item.id}-div`}>
+            <Image
+              src={item.image.url}
+              alt={item.name}
+              width={item.image.width}
+              height={item.image.height}
+              key={`${item.id}-image`}
+            />
+            <h2 key={`${item.id}-h2`} className={`text-center text-2xl`}>
+              {item.name}
+            </h2>
+          </div>
+        </Link>
+      ),
+    });
   }
 
   return (

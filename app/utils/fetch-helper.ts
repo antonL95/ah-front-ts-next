@@ -8,7 +8,7 @@ import {
   image,
   singularFilter,
 } from "@/ah/utils/type";
-import { draftMode } from 'next/headers'
+import { draftMode } from "next/headers";
 
 export const fetchData = async (
   endpoint: string,
@@ -31,14 +31,43 @@ export const fetchData = async (
   return res;
 };
 
+export const fetchLatestProducts = async (lang: string) => {
+  const query = qs.stringify({
+    populate: "images",
+    locale: [lang],
+  });
+
+  const res = await fetchData("products", query);
+
+  const data = await res.json();
+
+  const returnData: artworks = [];
+
+  for (const item of data.data) {
+    const itemAttr = item.attributes;
+    const thumbnail = itemAttr.images.data[0].attributes.formats.thumbnail;
+    returnData.push({
+      id: item.id,
+      image: {
+        url: thumbnail.url,
+        width: thumbnail.width,
+        height: thumbnail.height,
+      },
+      name: itemAttr.name,
+      href: item.id,
+    });
+  }
+  return returnData;
+};
+
 export const fetchArtistsWithProducts = async (lang: string) => {
-  let publicationState = {}
-  const { isEnabled } = draftMode()
+  let publicationState = {};
+  const { isEnabled } = draftMode();
 
   if (isEnabled) {
     publicationState = {
-      publicationState: 'preview',
-    }
+      publicationState: "preview",
+    };
   }
   const query = qs.stringify(
     {
@@ -125,13 +154,13 @@ export const fetchArtistsWithProducts = async (lang: string) => {
 };
 
 export const fetchFiltersAndValues = async (lang: string) => {
-  let publicationState = {}
-  const { isEnabled } = draftMode()
+  let publicationState = {};
+  const { isEnabled } = draftMode();
 
   if (isEnabled) {
     publicationState = {
-      publicationState: 'preview',
-    }
+      publicationState: "preview",
+    };
   }
   const query = qs.stringify(
     {
@@ -176,15 +205,15 @@ export const fetchFiltersAndValues = async (lang: string) => {
 };
 
 export const fetchProduct = async (lang: string, id: number | string) => {
-  let publicationState = {}
-  const { isEnabled } = draftMode()
+  let publicationState = {};
+  const { isEnabled } = draftMode();
 
-  console.log(isEnabled)
+  console.log(isEnabled);
 
   if (isEnabled) {
     publicationState = {
-      publicationState: 'preview',
-    }
+      publicationState: "preview",
+    };
   }
   const query = qs.stringify(
     {
@@ -242,15 +271,15 @@ export const fetchArtistWithProducts = async (
   lang: string,
   id: number | string,
   productId?: number | string,
-  options?:any,
+  options?: any
 ) => {
-  let publicationState = {}
-  const { isEnabled } = draftMode()
+  let publicationState = {};
+  const { isEnabled } = draftMode();
 
   if (isEnabled) {
     publicationState = {
-      publicationState: 'preview',
-    }
+      publicationState: "preview",
+    };
   }
   const query = qs.stringify(
     {
@@ -260,7 +289,7 @@ export const fetchArtistWithProducts = async (
           $eq: id,
         },
       },
-      populate: '*',
+      populate: "*",
       locale: [lang],
     },
     {
@@ -347,10 +376,14 @@ export const fetchArtistWithProducts = async (
   }
 
   const artistAttr = item.attributes;
-  const thumbnailProfile = artistAttr.profileImage.data.attributes.formats.thumbnail;
+  const thumbnailProfile =
+    artistAttr.profileImage.data.attributes.formats.thumbnail;
   const coverImage = artistAttr.coverImage.data.attributes.formats.large;
   const otherImages = [];
-  if (artistAttr.otherImages.data !== null && artistAttr.otherImages.data.length > 0) {
+  if (
+    artistAttr.otherImages.data !== null &&
+    artistAttr.otherImages.data.length > 0
+  ) {
     for (const image of artistAttr.otherImages.data) {
       otherImages.push({
         url: image.attributes.formats.large.url,
