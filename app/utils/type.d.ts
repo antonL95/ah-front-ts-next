@@ -18,6 +18,7 @@ type artwork = {
   href: string;
   name: string;
   id: string | number;
+  filters?: string[];
 };
 
 type artworks = artwork[];
@@ -37,7 +38,10 @@ type artsists = artist[];
 
 type filter = {
   type: string;
-  values: string[];
+  values: {
+    id: string | number;
+    value: string;
+  }[];
 };
 
 type filters = filter[];

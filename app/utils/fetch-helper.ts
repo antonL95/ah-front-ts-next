@@ -60,7 +60,9 @@ export const fetchLatestProducts = async (lang: string) => {
   return returnData;
 };
 
-export const fetchArtistsWithProducts = async (lang: string) => {
+export const fetchArtistsWithProducts = async (
+  lang: string
+) => {
   let publicationState = {};
   const { isEnabled } = draftMode();
 
@@ -69,85 +71,97 @@ export const fetchArtistsWithProducts = async (lang: string) => {
       publicationState: "preview",
     };
   }
+
   const query = qs.stringify(
     {
       ...publicationState,
-      populate: ["profileImage"],
+      populate: {
+        artist: {
+          populate: {
+            profileImage: true,
+          },
+        },
+        images: true,
+        filters: {
+          populate: {
+            id: true,
+          }
+        }
+      },
       locale: [lang],
+      pagination: {
+        pageSize: 1000,
+        page: 1,
+      }
     },
     {
       encodeValuesOnly: true,
     }
   );
-  const res = await fetchData("artists", query);
 
+  console.log(query);
+  const res = await fetchData("products", query);
   const data = await res.json();
 
-  const artists: artsists = [];
+  let artistsHelper = [];
   for (const item of data.data) {
-    const itemQuery = qs.stringify(
-      {
-        ...publicationState,
-        populate: ["images"],
-        locale: [lang],
-        filters: {
-          artist: {
-            id: {
-              $eq: item.id,
-            },
-          },
-        },
-      },
-      {
-        encodeValuesOnly: true,
-      }
-    );
-
-    const products: artworks = [];
-    let productRes;
-    try {
-      productRes = await fetchData("products", itemQuery, {
-        next: { revalidate: 0 },
-      });
-    } catch (err) {
-      continue;
-    }
-
-    const productData = await productRes.json();
-
-    if (productData.data.length <= 0) {
-      continue;
-    }
-
-    for (const product of productData.data) {
-      const itemAttr = product.attributes;
-      const thumbnail = itemAttr.images.data[0].attributes.formats.thumbnail;
-      products.push({
-        id: product.id,
-        image: {
-          url: thumbnail.url,
-          width: thumbnail.width,
-          height: thumbnail.height,
-        },
-        name: itemAttr.name,
-        href: product.id,
-      });
-    }
-
     const itemAttr = item.attributes;
-    const thumbnail = itemAttr.profileImage.data.attributes.formats.thumbnail;
+    const artist = itemAttr.artist.data;
+    const filters = itemAttr.filters.data;
+    const artistId = artist.id;
+    const artistName = artist.attributes.name;
+    const artistProfileImage =
+      artist.attributes.profileImage.data.attributes.formats.thumbnail;
+    const artistHref = artist.id;
 
-    artists.push({
-      id: item.id,
-      profileImageUrl: {
-        url: thumbnail.url,
-        width: thumbnail.width,
-        height: thumbnail.height,
-      },
-      name: itemAttr.name,
-      products: products,
-      href: item.id,
-    });
+    const productFilters = filters.map((filter: {id:number|string}) => {
+      return filter.id.toString();
+    })
+
+    if (artistsHelper[artistId] !== undefined) {
+      artistsHelper[artistId].products.push({
+        id: item.id,
+        name: itemAttr.name,
+        image: {
+          url: itemAttr.images.data[0].attributes.formats.thumbnail.url,
+          width: itemAttr.images.data[0].attributes.formats.thumbnail.width,
+          height: itemAttr.images.data[0].attributes.formats.thumbnail.height,
+        },
+        href: item.id,
+        filters: productFilters,
+      });
+    } else {
+      artistsHelper[artistId] = {
+        id: artistId,
+        name: artistName,
+        profileImageUrl: {
+          url: artistProfileImage.url,
+          width: artistProfileImage.width,
+          height: artistProfileImage.height,
+        },
+        products: [
+          {
+            id: item.id,
+            name: itemAttr.name,
+            image: {
+              url: itemAttr.images.data[0].attributes.formats.thumbnail.url,
+              width: itemAttr.images.data[0].attributes.formats.thumbnail.width,
+              height:
+                itemAttr.images.data[0].attributes.formats.thumbnail.height,
+            },
+            href: item.id,
+            filters: productFilters,
+          },
+        ],
+        href: artistHref,
+      };
+    }
+  }
+
+  const artists: artsists = [];
+
+  for (const item in artistsHelper) {
+    artists.push(artistsHelper[item]);
   }
 
   return artists;
@@ -167,8 +181,8 @@ export const fetchFiltersAndValues = async (lang: string) => {
       ...publicationState,
       populate: ["*"],
       pagination: {
-        limit: 1000,
-        start: 0,
+        pageSize: 1000,
+        page: 1,
       },
       locale: [lang],
     },
@@ -186,12 +200,20 @@ export const fetchFiltersAndValues = async (lang: string) => {
     const filterType = item.attributes.type;
     const filterValue = item.attributes.value;
     if (filtersHelper[filterType] !== undefined) {
-      filtersHelper[filterType].push(filterValue);
+      filtersHelper[filterType].push({
+        id: item.id,
+        value: filterValue,
+      });
 
       continue;
     }
 
-    filtersHelper[filterType] = [filterValue];
+    filtersHelper[filterType] = [
+      {
+        id: item.id,
+        value: filterValue,
+      },
+    ];
   }
 
   for (const item in filtersHelper) {
