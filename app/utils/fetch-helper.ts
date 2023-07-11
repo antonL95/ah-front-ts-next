@@ -99,7 +99,6 @@ export const fetchArtistsWithProducts = async (
     }
   );
 
-  console.log(query);
   const res = await fetchData("products", query);
   const data = await res.json();
 

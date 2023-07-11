@@ -31,7 +31,7 @@ type artist = {
   otherImages?: image[];
   products: artwork[];
   bio?: string;
-  href: string;
+  href?: string;
 };
 
 type artsists = artist[];

@@ -6,6 +6,7 @@ import {
 } from "@/ah/utils/fetch-helper";
 import GalleryRow from "@/ah/components/ui/GalleryRow";
 import FilterRow from "@/ah/components/Gallery/Main/FilterRow";
+import { artist } from "@/ah/utils/type";
 
 export const runtime = "edge";
 
@@ -36,12 +37,17 @@ const IndexPage = async (props: props) => {
     }
   }
 
-  const data = await fetchArtistsWithProducts(
-    props.params.lang
-  );
+  const data = await fetchArtistsWithProducts(props.params.lang);
+  const artists:artist[] = [];
+  for (const i in data) {
+    artists.push({
+      name: data[i].name,
+      id: data[i].id,
+      profileImageUrl: data[i].profileImageUrl,
+      products: [],
+    });
 
-  if (filteredSearchParams.length > 0) {
-    for (const i in data) {
+    if (filteredSearchParams.length > 0) {
       data[i].products = data[i].products.filter((product) => {
         if (product.filters === undefined || product.filters.length === 0) {
           return false;
@@ -66,11 +72,16 @@ const IndexPage = async (props: props) => {
 
   return (
     <>
-      <FilterRow dictionary={dictionary} filters={filters} />
+      <FilterRow
+        dictionary={dictionary}
+        filters={filters}
+        selectedFilters={filteredSearchParams}
+        artists={artists}
+      />
       {data[0] !== undefined ? (
         data.map((artist) => {
           return (
-            <div key={artist.id} className={`even:bg-white odd:bg-gray`}>
+            <div key={artist.id} className={`odd:bg-gray even:bg-white`}>
               <GalleryRow
                 key={`${artist.id}-${new Date().getTime()}`}
                 artist={artist}
