@@ -31,20 +31,17 @@ const IndexPage = async ({ params: { lang } }: Props) => {
     carouselItems.push({
       id: item.id,
       element: (
-        <Link href={`/gallery/products/${item.id}`} key={`${item.id}-link`}>
-          <div key={`${item.id}-div`}>
+        <div key={item.id} className={`max-w-[300px]`}>
+          <Link href={`/gallery/products/${item.id}`}>
             <Image
               src={item.image.url}
               alt={item.name}
               width={item.image.width}
               height={item.image.height}
-              key={`${item.id}-image`}
             />
-            <h2 key={`${item.id}-h2`} className={`text-center text-2xl`}>
-              {item.name}
-            </h2>
-          </div>
-        </Link>
+            <h2 className={`text-2xl`}>{item.name}</h2>
+          </Link>
+        </div>
       ),
     });
   }

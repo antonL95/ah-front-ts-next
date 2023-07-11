@@ -22,11 +22,11 @@ const BenefitsOfRenting = (props: props) => {
   return (
     <Sections classStyle={`bg-black text-white`} id={`benefits-of-renting`}>
       <>
-        <h2 className={`text-5xl font-medium text-center mb-3 md:mb-0`}>
+        <h2 className={`mb-3 text-center text-5xl font-medium md:mb-0`}>
           {props.dictionary.benefitsOfRentingArt.headline}
         </h2>
         <div
-          className={`container md:w-9/12 mx-auto md:grid md:grid-cols-3 md:pt-24`}
+          className={`container mx-auto md:grid md:w-9/12 md:grid-cols-3 md:pt-24`}
         >
           {props.dictionary.benefitsOfRentingArt.sections.map(
             (section: section) => {

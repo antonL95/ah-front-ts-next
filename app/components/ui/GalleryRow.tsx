@@ -26,7 +26,7 @@ const GalleryRow = (props: props) => {
                 alt={item.name}
                 height={250}
                 width={item.image.width}
-                className={`object-contain mx-auto`}
+                className={`mx-auto object-contain`}
                 key={`${item.id}-image`}
               />
               <h2 key={`${item.id}-h2`} className={``}>
@@ -47,7 +47,7 @@ const GalleryRow = (props: props) => {
             alt={props.artist.name}
             height={props.artist.profileImageUrl.height}
             width={props.artist.profileImageUrl.width}
-            className={`rounded-full w-[80px] h-[80px]`}
+            className={`h-[80px] w-[80px] rounded-full`}
           />
           <Link href={`/gallery/artists/${props.artist.href}`}>
             <span className={`align-middle`}>{props.artist.name}</span>

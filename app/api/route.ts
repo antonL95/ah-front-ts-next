@@ -11,8 +11,8 @@ export async function POST(request: Request) {
     secure: true,
     auth: {
       user: process.env.SMTP_USERNAME,
-      pass: process.env.SMTP_PASSWORD
-    }
+      pass: process.env.SMTP_PASSWORD,
+    },
   });
 
   const msg = {

@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --loglevel warn --write \"./app/**/*.{jsx,js,ts,tsx}\""
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -37,6 +38,7 @@
     "postcss": "8.4.23",
     "qs": "^6.11.2",
     "react": "18.2.0",
+    "react-device-detect": "^2.2.3",
     "react-dom": "18.2.0",
     "react-markdown": "^8.0.7",
     "server-only": "^0.0.1",

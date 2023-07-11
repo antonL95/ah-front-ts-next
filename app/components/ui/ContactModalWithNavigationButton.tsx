@@ -40,7 +40,7 @@ const ContactModalWithNavigationButton = ({
         >
           <div className={`grid grid-cols-1 lg:grid-cols-2`}>
             <section className={`md:ml-12 md:mr-14`}>
-              <h1 className="font-urbanist font-thin text-center text-3xl mb-8 mx-12 md:my-9 md:text-5xl">
+              <h1 className="mx-12 mb-8 text-center font-urbanist text-3xl font-thin md:my-9 md:text-5xl">
                 Contact Us
               </h1>
               <ContactForm />
@@ -54,7 +54,7 @@ const ContactModalWithNavigationButton = ({
 
       <button
         onClick={handleOnClick}
-        className={`${classStyles} font-roboto font-thin py-4 px-8 border border-black focus:outline-none`}
+        className={`${classStyles} border border-black px-8 py-4 font-roboto font-thin focus:outline-none`}
       >
         {dictionary.contactButton}
       </button>

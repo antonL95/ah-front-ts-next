@@ -43,11 +43,11 @@ const AboutUs = (props: props) => {
             {props.dictionary.about.sections.map((section: section) => {
               return (
                 <>
-                  <div className={`md:px-1 py-3`} key={section.headline}>
+                  <div className={`py-3 md:px-1`} key={section.headline}>
                     <h3 className={`pb-3 text-3xl font-medium md:pr-16`}>
                       {section.headline}
                     </h3>
-                    <p className={`md:pr-20 whitespace-pre-line`}>
+                    <p className={`whitespace-pre-line md:pr-20`}>
                       {section.text}
                     </p>
                     {section.id === "wrote_about_us" ? (

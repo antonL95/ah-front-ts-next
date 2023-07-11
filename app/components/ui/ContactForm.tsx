@@ -42,12 +42,12 @@ const ContactForm: React.FC = () => {
           value={formData.name}
           onChange={handleChange}
           required
-          className="peer h-10 w-full border-b border-gray-300 placeholder-transparent focus:outline-none focus:border-blue-600"
+          className="border-gray-300 placeholder-transparent focus:border-blue-600 peer h-10 w-full border-b focus:outline-none"
           placeholder="Name"
         />
         <label
           htmlFor="name"
-          className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-sm peer-focus:text-blue-600"
+          className="text-gray-600 peer-placeholder-shown:text-gray-400 peer-focus:text-blue-600 absolute -top-3.5 left-0 text-sm transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-focus:-top-3.5 peer-focus:text-sm"
         >
           Name
         </label>
@@ -59,12 +59,12 @@ const ContactForm: React.FC = () => {
           value={formData.email}
           onChange={handleChange}
           required
-          className="peer h-10 w-full border-b border-gray-300 placeholder-transparent focus:outline-none focus:border-blue-600"
+          className="border-gray-300 placeholder-transparent focus:border-blue-600 peer h-10 w-full border-b focus:outline-none"
           placeholder="Email"
         />
         <label
           htmlFor="email"
-          className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-sm peer-focus:text-blue-600"
+          className="text-gray-600 peer-placeholder-shown:text-gray-400 peer-focus:text-blue-600 absolute -top-3.5 left-0 text-sm transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-focus:-top-3.5 peer-focus:text-sm"
         >
           Email
         </label>
@@ -76,12 +76,12 @@ const ContactForm: React.FC = () => {
           value={formData.subject}
           onChange={handleChange}
           required
-          className="peer h-10 w-full border-b border-gray-300 placeholder-transparent focus:outline-none focus:border-blue-600"
+          className="border-gray-300 placeholder-transparent focus:border-blue-600 peer h-10 w-full border-b focus:outline-none"
           placeholder="Subject"
         />
         <label
           htmlFor="subject"
-          className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-sm peer-focus:text-blue-600"
+          className="text-gray-600 peer-placeholder-shown:text-gray-400 peer-focus:text-blue-600 absolute -top-3.5 left-0 text-sm transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-focus:-top-3.5 peer-focus:text-sm"
         >
           Subject
         </label>
@@ -92,19 +92,19 @@ const ContactForm: React.FC = () => {
           value={formData.message}
           onChange={handleChange}
           required
-          className="peer h-32 w-full border-b border-gray-300 placeholder-transparent focus:outline-none focus:border-blue-600 resize-none"
+          className="border-gray-300 placeholder-transparent focus:border-blue-600 peer h-32 w-full resize-none border-b focus:outline-none"
           placeholder="Message"
         />
         <label
           htmlFor="message"
-          className="absolute left-0 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-0 transition-all peer-focus:-top-3.5 peer-focus:text-sm peer-focus:text-blue-600"
+          className="text-gray-600 peer-placeholder-shown:text-gray-400 peer-focus:text-blue-600 absolute left-0 text-sm transition-all peer-placeholder-shown:top-0 peer-placeholder-shown:text-base peer-focus:-top-3.5 peer-focus:text-sm"
         >
           Message
         </label>
       </div>
       <button
         type="submit"
-        className="w-full bg-black text-white font-roboto font-thin py-4 px-8 border border-black hover:bg-white hover:text-black focus:outline-none"
+        className="w-full border border-black bg-black px-8 py-4 font-roboto font-thin text-white hover:bg-white hover:text-black focus:outline-none"
       >
         Submit
       </button>

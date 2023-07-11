@@ -26,7 +26,7 @@ const IndexPage = async (props: props) => {
   const artistsArtworks = await fetchArtistWithProducts(
     props.params.lang,
     product.artist.id,
-    product.id,
+    product.id
   );
   const elements: carouselItems = [];
   const breadcrumbs = [
@@ -44,8 +44,8 @@ const IndexPage = async (props: props) => {
   const filters = product.filters.map((filter) => {
     return (
       <div key={filter.type}>
-        <p className="text-gray-60 uppercase text-sm mt-8">{filter.type}</p>
-        <p className="text-base mt-1">{filter.value}</p>
+        <p className="mt-8 text-sm uppercase text-gray-60">{filter.type}</p>
+        <p className="mt-1 text-base">{filter.value}</p>
       </div>
     );
   });
@@ -127,16 +127,18 @@ const IndexPage = async (props: props) => {
               </Link>
             </p>
             {filters}
-            <p className="text-gray-60 uppercase text-sm mt-8">
+            <p className="mt-8 text-sm uppercase text-gray-60">
               {dictionary.gallery.productDetail.description}
             </p>
-            <EditorJsWrapper data={JSON.parse(product.description)}/>
-            <div className="my-8">
+            <EditorJsWrapper data={JSON.parse(product.description)} />
+            {/*<div className="my-8">
               <RentButton product={product} dictionary={dictionary} />
-            </div>
+            </div>*/}
           </div>
         </div>
-        {artistsArtworks !== undefined ? <GalleryRow artist={artistsArtworks}/> : null}
+        {artistsArtworks !== undefined ? (
+          <GalleryRow artist={artistsArtworks} />
+        ) : null}
       </div>
     </>
   );

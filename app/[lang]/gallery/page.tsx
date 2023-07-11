@@ -24,6 +24,7 @@ const IndexPage = async (props: props) => {
   const filters = await fetchFiltersAndValues(props.params.lang);
 
   const filteredSearchParams: string[] = [];
+  let selectedArtist = undefined;
 
   for (const [key, value] of Object.entries(props.searchParams)) {
     if (key !== "lang") {
@@ -35,10 +36,16 @@ const IndexPage = async (props: props) => {
         }
       }
     }
+    if (key === "artist") {
+      selectedArtist = value;
+    }
   }
 
-  const data = await fetchArtistsWithProducts(props.params.lang);
-  const artists:artist[] = [];
+  const data = await fetchArtistsWithProducts(
+    props.params.lang,
+    selectedArtist
+  );
+  const artists: artist[] = [];
   for (const i in data) {
     artists.push({
       name: data[i].name,
@@ -77,11 +84,15 @@ const IndexPage = async (props: props) => {
         filters={filters}
         selectedFilters={filteredSearchParams}
         artists={artists}
+        selectedArtist={selectedArtist}
       />
       {data[0] !== undefined ? (
         data.map((artist) => {
           return (
-            <div key={artist.id} className={`odd:bg-gray even:bg-white`}>
+            <div
+              key={artist.id}
+              className={`container mx-auto odd:bg-gray even:bg-white`}
+            >
               <GalleryRow
                 key={`${artist.id}-${new Date().getTime()}`}
                 artist={artist}

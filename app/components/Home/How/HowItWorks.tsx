@@ -18,7 +18,7 @@ const HowItWorks = (props: props) => {
     <>
       <Sections classStyle={`bg-white text-black`} id={`how`}>
         <>
-          <h2 className={`text-5xl font-medium text-center`}>
+          <h2 className={`text-center text-5xl font-medium`}>
             {props.dictionary.howItWorks.headline}
           </h2>
           <div className={`container mx-auto md:grid md:grid-cols-4 md:pt-24`}>
@@ -26,7 +26,7 @@ const HowItWorks = (props: props) => {
               return (
                 <div className={`md:px-1`} key={section.headline}>
                   <span
-                    className={`pb-8 text-8xl font-urbanist font-thin flex`}
+                    className={`flex pb-8 font-urbanist text-8xl font-thin`}
                   >
                     {section.number}
                     <span

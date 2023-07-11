@@ -25,10 +25,13 @@ export const RentButton = (props: props) => {
             name: props.product.name,
           });
 
-          localStorage.setItem("products", JSON.stringify(productsInLocalStorage));
+          localStorage.setItem(
+            "products",
+            JSON.stringify(productsInLocalStorage)
+          );
         }
       }}
-      className="w-full bg-black text-white font-roboto font-thin py-4 px-8 border border-black hover:bg-white hover:text-black focus:outline-none"
+      className="w-full border border-black bg-black px-8 py-4 font-roboto font-thin text-white hover:bg-white hover:text-black focus:outline-none"
     >
       {props.dictionary.gallery.productDetail.rent}
     </button>

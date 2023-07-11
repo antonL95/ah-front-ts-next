@@ -12,6 +12,7 @@ type props = {
   dictionary: any;
   filters: filters;
   selectedFilters: string[];
+  selectedArtist?: string;
   artists: artsists;
 };
 
@@ -39,13 +40,18 @@ const FilterRow = (props: props) => {
 
   return (
     <>
-      <div className={`container mx-auto flex flex-row justify-around py-16`}>
-        <Menu as="div" className={`relative inline-block text-left`}>
+      <div
+        className={`container mx-auto flex flex-col py-16 md:flex-row md:justify-around`}
+      >
+        <Menu
+          as="div"
+          className={`relative inline-block w-full text-left md:w-56`}
+        >
           <div>
             <Menu.Button
-              className={`z-50 cursor-pointer border border-black px-8 py-4`}
+              className={`z-50 w-full cursor-pointer border border-black px-8 py-4 md:w-56`}
             >
-              Artists
+              {props.dictionary.gallery.filterRow.artists}
             </Menu.Button>
           </div>
 
@@ -59,7 +65,7 @@ const FilterRow = (props: props) => {
             leaveTo={`transform opacity-0 scale-95`}
           >
             <Menu.Items
-              className={`absolute z-10 mt-[-1px] w-56 origin-top-right border border-black bg-white`}
+              className={`z-10 mt-[-1px] w-full origin-top-right border border-black bg-white md:absolute md:w-56`}
             >
               {props.artists.map((artist) => {
                 return (
@@ -77,13 +83,11 @@ const FilterRow = (props: props) => {
                               createQueryString("artist", artist.name)
                           );
                         }}
-                        className={`text-gray-700 hover:bg-gray-100 hover:text-gray-900 block cursor-pointer px-4 py-2 text-sm`}
+                        className={`flex w-full cursor-pointer flex-row px-4 py-2 text-sm`}
                       >
                         <span
                           className={`${
-                            props.selectedFilters.includes(artist.id.toString())
-                              ? ``
-                              : `hidden`
+                            props.selectedArtist === artist.name ? `` : `hidden`
                           }`}
                         >
                           <CheckIcon />
@@ -94,7 +98,7 @@ const FilterRow = (props: props) => {
                             alt={artist.name}
                             width={30}
                             height={30}
-                            className={`rounded-full inline-block mx-2`}
+                            className={`mx-2 inline-block rounded-full`}
                           />
                           {artist.name}
                         </span>
@@ -110,12 +114,12 @@ const FilterRow = (props: props) => {
           return (
             <Menu
               as="div"
-              className={`relative inline-block text-left`}
+              className={`relative inline-block w-full text-left md:w-56 `}
               key={`${new Date().getTime()}-${filter.type}-menu`}
             >
               <div>
                 <Menu.Button
-                  className={`z-50 cursor-pointer border border-black px-8 py-4`}
+                  className={`z-50 w-full cursor-pointer border-b border-l border-r border-black px-8 py-4 md:w-56 md:border md:border-black`}
                 >
                   {filter.type}
                 </Menu.Button>
@@ -131,7 +135,7 @@ const FilterRow = (props: props) => {
                 leaveTo={`transform opacity-0 scale-95`}
               >
                 <Menu.Items
-                  className={`absolute z-10 mt-[-1px] w-56 origin-top-right border border-black bg-white`}
+                  className={`z-10 mt-[-1px] w-full origin-top-right border border-black bg-white md:absolute md:w-56`}
                 >
                   {filter.values.map((value) => {
                     return (
@@ -149,7 +153,7 @@ const FilterRow = (props: props) => {
                                   createQueryString(filter.type, value.value)
                               );
                             }}
-                            className={`text-gray-700 hover:bg-gray-100 hover:text-gray-900 block cursor-pointer px-4 py-2 text-sm`}
+                            className={`flex w-full cursor-pointer flex-row px-4 py-2 text-sm`}
                           >
                             <span
                               className={`${
@@ -175,19 +179,22 @@ const FilterRow = (props: props) => {
         })}
         <Menu
           as="div"
-          className={`relative inline-block text-left ${
-            props.selectedFilters.length > 0 ? `` : `hidden`
+          className={`relative inline-block w-full text-left md:w-56 ${
+            props.selectedFilters.length > 0 ||
+            props.selectedArtist !== undefined
+              ? ``
+              : `hidden`
           } `}
         >
           <div>
             <Menu.Button
-              className={`z-50 cursor-pointer px-8 py-4`}
+              className={`z-50 w-full cursor-pointer px-8 py-4`}
               onClick={() => {
                 router.push(pathname);
               }}
             >
               <CloseIcon />
-              Clear all filters
+              {props.dictionary.gallery.filterRow.clearAll}
             </Menu.Button>
           </div>
         </Menu>

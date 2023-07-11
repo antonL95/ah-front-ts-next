@@ -47,8 +47,8 @@ const Benefits = ({ dictionary }: Benefits) => {
         ) : (
           ""
         )}
-        <div className={`flex mt-16 md:mt-20 md:w-8/12`}>
-          <div className={`pl-2 md:pl-0 w-[32px]`}>{choseIcon(key)}</div>
+        <div className={`mt-16 flex md:mt-20 md:w-8/12`}>
+          <div className={`w-[32px] pl-2 md:pl-0`}>{choseIcon(key)}</div>
           <div className={`px-5`} key={`${key}-${new Date().getTime()}-div`}>
             <h2
               className={`flex flex-row text-2xl`}
@@ -58,7 +58,7 @@ const Benefits = ({ dictionary }: Benefits) => {
             </h2>
             {value.percentage !== "" ? (
               <h3
-                className={`text-6xl text-black font-extralight font-urbanist`}
+                className={`font-urbanist text-6xl font-extralight text-black`}
                 key={`${key}-${new Date().getTime()}-h3`}
               >
                 {value.percentage}
@@ -75,7 +75,7 @@ const Benefits = ({ dictionary }: Benefits) => {
             )}
             {value.subheadline !== "" ? (
               <p
-                className={`text-lg text-gray-60 mb-8 mt-2`}
+                className={`mb-8 mt-2 text-lg text-gray-60`}
                 key={`${key}-${new Date().getTime()}-p1`}
               >
                 {value.subheadline}
@@ -110,7 +110,7 @@ const Benefits = ({ dictionary }: Benefits) => {
     <>
       <Sections classStyle={`bg-white text-black md:pt-0`} id={`benefits`}>
         <div
-          className={`grid grid-cols-1 mx-auto md:grid-cols-2 md:justify-items-center`}
+          className={`mx-auto grid grid-cols-1 md:grid-cols-2 md:justify-items-center`}
         >
           {sections}
         </div>

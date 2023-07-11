@@ -20,8 +20,8 @@ const NavigationBar = ({ dictionary }: NavbarProps) => {
 
   return (
     <nav className={`bg-white shadow-md`}>
-      <div className={`md:flex md:justify-between p-4 md:container md:mx-auto`}>
-        <div className={`flex justify-between items-center`}>
+      <div className={`p-4 md:container md:mx-auto md:flex md:justify-between`}>
+        <div className={`flex items-center justify-between`}>
           <div className={``}>
             <Link href={`/`} onClick={close}>
               <Image
@@ -32,7 +32,7 @@ const NavigationBar = ({ dictionary }: NavbarProps) => {
             </Link>
           </div>
           <button
-            className={"relative focus:outline-none md:hidden w-[18px]"}
+            className={"relative w-[18px] focus:outline-none md:hidden"}
             onClick={toggle}
           >
             <Image
@@ -40,14 +40,14 @@ const NavigationBar = ({ dictionary }: NavbarProps) => {
               alt={``}
               className={`${
                 opened ? "opacity-0" : "opacity-100"
-              } absolute transition-opacity duration-300 top-0`}
+              } absolute top-0 transition-opacity duration-300`}
             />
             <Image
               src={crossIcon}
               alt={``}
               className={`${
                 opened ? "opacity-100" : "opacity-0"
-              } absolute transition-opacity duration-300 top-0`}
+              } absolute top-0 transition-opacity duration-300`}
             />
           </button>
         </div>
@@ -57,7 +57,7 @@ const NavigationBar = ({ dictionary }: NavbarProps) => {
           >
             <NavigationHash
               close={close}
-              className={`md:hidden text-center`}
+              className={`text-center md:hidden`}
               dictionary={dictionary}
             />
             <GalleryButton

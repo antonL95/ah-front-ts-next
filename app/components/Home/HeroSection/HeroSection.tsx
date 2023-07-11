@@ -9,23 +9,23 @@ type params = {
 
 const HeroSection = ({ dictionary }: params) => {
   return (
-    <div className={`md:flex relative md:h-[730px]`} id={`intro`}>
+    <div className={`relative md:flex md:h-[730px]`} id={`intro`}>
       <Image
         src={heroSectionSrc}
         alt="hero section"
-        className={`hidden md:block absolute top-0 right-0`}
+        className={`absolute right-0 top-0 hidden md:block`}
         priority
       />
       <div className={`container mx-auto`}>
-        <section className={`max-w-3xl mt-10 md:mt-24`}>
+        <section className={`mt-10 max-w-3xl md:mt-24`}>
           <h1
-            className={`text-[2rem] md:text-7xl font-medium whitespace-pre-line md:whitespace-normal`}
+            className={`whitespace-pre-line text-[2rem] font-medium md:whitespace-normal md:text-7xl`}
           >
             {dictionary.heroSection.title}
           </h1>
-          <h3 className={`flex text-xl mt-8 md:text-2xl md:mt-12`}>
+          <h3 className={`mt-8 flex text-xl md:mt-12 md:text-2xl`}>
             <div
-              className={`inline-block relative h-[33px] w-[155px] md:w-[188px]`}
+              className={`relative inline-block h-[33px] w-[155px] md:w-[188px]`}
             >
               <span className={`absolute animate-topToBottom opacity-0`}>
                 {dictionary.heroSection.subtitle1}
@@ -47,7 +47,7 @@ const HeroSection = ({ dictionary }: params) => {
               </span>
             </div>
             {` `}
-            <div className={`inline-block relative`}>
+            <div className={`relative inline-block`}>
               {dictionary.heroSection.subtitle}
             </div>
           </h3>

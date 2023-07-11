@@ -61,14 +61,28 @@ export const fetchLatestProducts = async (lang: string) => {
 };
 
 export const fetchArtistsWithProducts = async (
-  lang: string
+  lang: string,
+  artistName?: string
 ) => {
   let publicationState = {};
+  let filters = {};
   const { isEnabled } = draftMode();
 
   if (isEnabled) {
     publicationState = {
       publicationState: "preview",
+    };
+  }
+
+  if (artistName !== undefined) {
+    filters = {
+      filters: {
+        artist: {
+          name: {
+            $eq: artistName,
+          },
+        },
+      },
     };
   }
 
@@ -85,14 +99,15 @@ export const fetchArtistsWithProducts = async (
         filters: {
           populate: {
             id: true,
-          }
-        }
+          },
+        },
       },
       locale: [lang],
       pagination: {
         pageSize: 1000,
         page: 1,
-      }
+      },
+      ...filters,
     },
     {
       encodeValuesOnly: true,
@@ -113,9 +128,9 @@ export const fetchArtistsWithProducts = async (
       artist.attributes.profileImage.data.attributes.formats.thumbnail;
     const artistHref = artist.id;
 
-    const productFilters = filters.map((filter: {id:number|string}) => {
+    const productFilters = filters.map((filter: { id: number | string }) => {
       return filter.id.toString();
-    })
+    });
 
     if (artistsHelper[artistId] !== undefined) {
       artistsHelper[artistId].products.push({

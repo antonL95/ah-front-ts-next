@@ -15,10 +15,18 @@ export const BreadcrumbsWrapper = (props: props) => {
     <Breadcrumbs>
       {props.items.map((item) => {
         if (item.href === "") {
-          return <span className="text-gray-60 truncate ..." key={item.name} >{item.name}</span>;
+          return (
+            <span className="... truncate text-gray-60" key={item.name}>
+              {item.name}
+            </span>
+          );
         }
         return (
-          <Link key={item.href} href={item.href} className="underline text-gray-60">
+          <Link
+            key={item.href}
+            href={item.href}
+            className="text-gray-60 underline"
+          >
             {item.name}
           </Link>
         );

@@ -12,15 +12,15 @@ const FooterSection = ({ dictionary }: Props) => {
   return (
     <div className={`bg-black`}>
       <section
-        className={`container grid grid-cols-1 justify-center items-center pt-16 md:mx-auto md:flex md:flex-col md:justify-center md:w-5/12`}
+        className={`container grid grid-cols-1 items-center justify-center pt-16 md:mx-auto md:flex md:w-5/12 md:flex-col md:justify-center`}
       >
         <h1
-          className={`text-white text-center text-[2rem] md:text-5xl font-medium md:text-center md:mb-12 md:mt-28 2xl:whitespace-pre-line`}
+          className={`text-center text-[2rem] font-medium text-white md:mb-12 md:mt-28 md:text-center md:text-5xl 2xl:whitespace-pre-line`}
         >
           {dictionary.footer.headline}
         </h1>
         <article
-          className={`text-gray-80 text-center text-[1rem] md:text-lg whitespace-pre-line md:mb-16`}
+          className={`whitespace-pre-line text-center text-[1rem] text-gray-80 md:mb-16 md:text-lg`}
         >
           {dictionary.footer.text}
         </article>
@@ -38,7 +38,7 @@ const FooterSection = ({ dictionary }: Props) => {
         </div>
         <div>socials</div>
         <div className={`text-white`}>
-          <h2 className={`text-3xl text-center p-2.5`}>
+          <h2 className={`p-2.5 text-center text-3xl`}>
             <Image
               src={marekImage}
               alt={`ceo`}
@@ -46,11 +46,11 @@ const FooterSection = ({ dictionary }: Props) => {
             />
             Marek Jakúbek, Founder & CEO
           </h2>
-          <p className={`md:grid md:grid-cols-2 flex flex-col`}>
+          <p className={`flex flex-col md:grid md:grid-cols-2`}>
             <span className={`text-center`}>
               <a
                 href={`mailto:marek@artistshero.com`}
-                className={`text-lg underline text-center w-full p-2.5`}
+                className={`w-full p-2.5 text-center text-lg underline`}
               >
                 marek@artistshero.com
               </a>
@@ -58,7 +58,7 @@ const FooterSection = ({ dictionary }: Props) => {
             <span className={`text-center`}>
               <a
                 href={`tel:+421951121167`}
-                className={`text-lg underline w-full p-2.5`}
+                className={`w-full p-2.5 text-lg underline`}
               >
                 +421 951 121 167
               </a>
@@ -68,10 +68,10 @@ const FooterSection = ({ dictionary }: Props) => {
       </section>
       <div className={`container mx-auto pb-14 md:pb-16`}>
         <hr
-          className={`h-px w-full border-b border-white border-opacity-20 mb-16 mt-24`}
+          className={`mb-16 mt-24 h-px w-full border-b border-white border-opacity-20`}
         />
         <Image src={logoSrc} alt={`logo`} />
-        <p className={`text-gray-80 text-xs mt-4`}>
+        <p className={`mt-4 text-xs text-gray-80`}>
           © {new Date().getFullYear()} {`Artist's hero`}{" "}
         </p>
       </div>

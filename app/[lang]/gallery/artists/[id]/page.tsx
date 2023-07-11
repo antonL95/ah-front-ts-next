@@ -3,12 +3,12 @@ import { Locale } from "@/ah/../i18n-config";
 import { fetchArtistWithProducts } from "@/ah/utils/fetch-helper";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import Output from "editorjs-react-renderer";
 import GalleryRow from "@/ah/components/ui/GalleryRow";
 import CarouselSlider from "@/ah/components/ui/CarouselSlider";
 import { carouselItems } from "@/ah/utils/type";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { EditorJsWrapper } from "@/ah/components/ui/EditorJsWrapper";
+import { BreadcrumbsWrapper } from "@/ah/components/ui/BreadcrumbWrapper";
 
 export const runtime = "edge";
 
@@ -38,7 +38,7 @@ const IndexPage = async (props: props) => {
     { name: artist.name, href: `` },
   ];
 
-  let otherImages:carouselItems = [];
+  let otherImages: carouselItems = [];
   if (artist.otherImages !== undefined) {
     otherImages = artist.otherImages.map((image) => {
       return {
@@ -64,28 +64,29 @@ const IndexPage = async (props: props) => {
             alt={artist.name}
             height={artist.coverImageUrl.height}
             width={artist.coverImageUrl.width}
-            className={`w-full h-[150px] md:h-[500px] object-cover z-0`}
+            className={`z-0 h-[150px] w-full object-cover md:h-[500px]`}
           />
         )}
         <div
-          className={`absolute top-0 w-full h-[150px] md:h-[500px] bg-black/[.5] flex flex-col z-0`}
+          className={`absolute top-0 z-0 flex h-[150px] w-full flex-col bg-black/[.5] md:h-[500px]`}
         ></div>
       </div>
-      <div className={`container mx-auto mt-[-50px] md:mt-[-150px] z-10`}>
+      <div className={`container z-10 mx-auto mt-[-50px] md:mt-[-150px]`}>
         <Image
           src={artist.profileImageUrl.url}
           alt={artist.name}
           height={200}
           width={200}
-          className={`rounded-full flex-none w-[100px] h-[100px] md:w-[200px] md:h-[200px] border-4 border-white`}
+          className={`h-[100px] w-[100px] flex-none rounded-full border-4 border-white md:h-[200px] md:w-[200px]`}
         />
       </div>
-      <div className="py-5 md:py-10 md:container md:mx-auto">
-        {/*<BreadcrumbsWrapper items={breadcrumbs} />*/}
+      <div className="container mx-auto py-5 md:py-10">
         <h1 className={`text-5xl text-black`}>{artist.name}</h1>
         <div className={`md:grid md:grid-cols-2`}>
-          <div>
-            {artist.bio !== undefined ? <EditorJsWrapper data={JSON.parse(artist.bio)}/> : null}
+          <div className={`container mx-auto`}>
+            {artist.bio !== undefined ? (
+              <EditorJsWrapper data={JSON.parse(artist.bio)} />
+            ) : null}
           </div>
           {otherImages.length > 0 ? (
             <div>
@@ -135,11 +136,14 @@ const IndexPage = async (props: props) => {
           ) : null}
         </div>
       </div>
-      <div className={`py-5 md:py-10`}>
-        <h2 className={`text-3xl text-black md:container md:mx-auto`}>
+      <div className={`container mx-auto py-5 md:py-10`}>
+        <h2 className={`text-3xl text-black`}>
           {dictionary.gallery.artistDetail.artworks}
         </h2>
         <GalleryRow artist={artist} withoutAvatar={true} />
+      </div>
+      <div className={`container mx-auto py-5 md:py-10`}>
+        <BreadcrumbsWrapper items={breadcrumbs} />
       </div>
     </>
   );

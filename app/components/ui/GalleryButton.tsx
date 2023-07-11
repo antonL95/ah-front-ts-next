@@ -15,7 +15,7 @@ const GalleryButton = ({
     <Link
       href="/gallery"
       onClick={close}
-      className={`${classStyles} text-center font-roboto font-thin py-4 px-8 focus:outline-none mb-4 md:mb-0 md:mr-6`}
+      className={`${classStyles} mb-4 px-8 py-4 text-center font-roboto font-thin focus:outline-none md:mb-0 md:mr-6`}
     >
       {dictionary.galleryButton}
     </Link>
