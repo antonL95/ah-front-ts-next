@@ -45,13 +45,13 @@ export const fetchLatestProducts = async (lang: string) => {
 
   for (const item of data.data) {
     const itemAttr = item.attributes;
-    const thumbnail = itemAttr.images.data[0].attributes.formats.thumbnail;
+    const medium = itemAttr.images.data[0].attributes.formats.medium;
     returnData.push({
       id: item.id,
       image: {
-        url: thumbnail.url,
-        width: thumbnail.width,
-        height: thumbnail.height,
+        url: medium.url,
+        width: medium.width,
+        height: medium.height,
       },
       name: itemAttr.name,
       href: item.id,
@@ -137,9 +137,9 @@ export const fetchArtistsWithProducts = async (
         id: item.id,
         name: itemAttr.name,
         image: {
-          url: itemAttr.images.data[0].attributes.formats.thumbnail.url,
-          width: itemAttr.images.data[0].attributes.formats.thumbnail.width,
-          height: itemAttr.images.data[0].attributes.formats.thumbnail.height,
+          url: itemAttr.images.data[0].attributes.formats.medium.url,
+          width: itemAttr.images.data[0].attributes.formats.medium.width,
+          height: itemAttr.images.data[0].attributes.formats.medium.height,
         },
         href: item.id,
         filters: productFilters,
@@ -158,10 +158,9 @@ export const fetchArtistsWithProducts = async (
             id: item.id,
             name: itemAttr.name,
             image: {
-              url: itemAttr.images.data[0].attributes.formats.thumbnail.url,
-              width: itemAttr.images.data[0].attributes.formats.thumbnail.width,
-              height:
-                itemAttr.images.data[0].attributes.formats.thumbnail.height,
+              url: itemAttr.images.data[0].attributes.formats.medium.url,
+              width: itemAttr.images.data[0].attributes.formats.medium.width,
+              height: itemAttr.images.data[0].attributes.formats.medium.height,
             },
             href: item.id,
             filters: productFilters,
@@ -398,13 +397,13 @@ export const fetchArtistWithProducts = async (
 
   for (const product of productData.data) {
     const itemAttr = product.attributes;
-    const thumbnail = itemAttr.images.data[0].attributes.formats.thumbnail;
+    const medium = itemAttr.images.data[0].attributes.formats.medium;
     products.push({
       id: product.id,
       image: {
-        url: thumbnail.url,
-        width: thumbnail.width,
-        height: thumbnail.height,
+        url: medium.url,
+        width: medium.width,
+        height: medium.height,
       },
       name: itemAttr.name,
       href: product.id,

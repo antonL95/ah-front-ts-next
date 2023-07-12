@@ -21,7 +21,9 @@ const HowItWorks = (props: props) => {
           <h2 className={`text-center text-5xl font-medium`}>
             {props.dictionary.howItWorks.headline}
           </h2>
-          <div className={`container mx-auto md:grid md:grid-cols-4 md:pt-24`}>
+          <div
+            className={`container mx-auto justify-between md:grid md:grid-cols-4 md:pt-24`}
+          >
             {props.dictionary.howItWorks.sections.map((section: section) => {
               return (
                 <div className={`md:px-1`} key={section.headline}>

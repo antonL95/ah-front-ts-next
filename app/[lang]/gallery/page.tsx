@@ -89,14 +89,13 @@ const IndexPage = async (props: props) => {
       {data[0] !== undefined ? (
         data.map((artist) => {
           return (
-            <div
-              key={artist.id}
-              className={`container mx-auto odd:bg-gray even:bg-white`}
-            >
-              <GalleryRow
-                key={`${artist.id}-${new Date().getTime()}`}
-                artist={artist}
-              />
+            <div key={artist.id} className={`even:bg-gray odd:bg-white`}>
+              <div className={`container mx-auto`}>
+                <GalleryRow
+                  key={`${artist.id}-${new Date().getTime()}`}
+                  artist={artist}
+                />
+              </div>
             </div>
           );
         })

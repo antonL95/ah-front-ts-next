@@ -65,7 +65,7 @@ const FilterRow = (props: props) => {
             leaveTo={`transform opacity-0 scale-95`}
           >
             <Menu.Items
-              className={`z-10 mt-[-1px] w-full origin-top-right border border-black bg-white md:absolute md:w-56`}
+              className={`bg-gray z-10 mt-[-1px] w-full origin-top-right border border-black md:absolute md:w-56`}
             >
               {props.artists.map((artist) => {
                 return (
@@ -135,7 +135,7 @@ const FilterRow = (props: props) => {
                 leaveTo={`transform opacity-0 scale-95`}
               >
                 <Menu.Items
-                  className={`z-10 mt-[-1px] w-full origin-top-right border border-black bg-white md:absolute md:w-56`}
+                  className={`bg-gray z-10 mt-[-1px] w-full origin-top-right border border-black bg-white md:absolute md:w-56`}
                 >
                   {filter.values.map((value) => {
                     return (
@@ -177,27 +177,27 @@ const FilterRow = (props: props) => {
             </Menu>
           );
         })}
-        <Menu
-          as="div"
-          className={`relative inline-block w-full text-left md:w-56 ${
-            props.selectedFilters.length > 0 ||
-            props.selectedArtist !== undefined
-              ? ``
-              : `hidden`
-          } `}
-        >
-          <div>
-            <Menu.Button
-              className={`z-50 w-full cursor-pointer px-8 py-4`}
-              onClick={() => {
-                router.push(pathname);
-              }}
-            >
-              <CloseIcon />
-              {props.dictionary.gallery.filterRow.clearAll}
-            </Menu.Button>
-          </div>
-        </Menu>
+        {props.selectedFilters.length > 0 ||
+        props.selectedArtist !== undefined ? (
+          <Menu
+            as="div"
+            className={`relative inline-block w-full text-left md:w-56  `}
+          >
+            <div>
+              <Menu.Button
+                className={`z-50 w-full cursor-pointer px-8 py-4`}
+                onClick={() => {
+                  router.push(pathname);
+                }}
+              >
+                <CloseIcon />
+                {props.dictionary.gallery.filterRow.clearAll}
+              </Menu.Button>
+            </div>
+          </Menu>
+        ) : (
+          ""
+        )}
       </div>
     </>
   );

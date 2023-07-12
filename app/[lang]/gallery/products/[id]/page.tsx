@@ -11,6 +11,7 @@ import { BreadcrumbsWrapper } from "@/ah/components/ui/BreadcrumbWrapper";
 import { RentButton } from "@/ah/components/ui/RentButton";
 import GalleryRow from "@/ah/components/ui/GalleryRow";
 import { EditorJsWrapper } from "@/ah/components/ui/EditorJsWrapper";
+import React from "react";
 
 export const runtime = "edge";
 
@@ -116,7 +117,7 @@ const IndexPage = async (props: props) => {
             />
           </div>
           <div className={`md:mx-auto md:w-8/12`}>
-            <h1 className="text-3xl">{product.name}</h1>
+            <h1 className="my-4 text-3xl md:my-0">{product.name}</h1>
             <p className="md:my-8">
               by{" "}
               <Link
@@ -130,14 +131,21 @@ const IndexPage = async (props: props) => {
             <p className="mt-8 text-sm uppercase text-gray-60">
               {dictionary.gallery.productDetail.description}
             </p>
-            <EditorJsWrapper data={JSON.parse(product.description)} />
+            <article className={`prose`}>
+              <EditorJsWrapper data={JSON.parse(product.description)} />
+            </article>
             {/*<div className="my-8">
               <RentButton product={product} dictionary={dictionary} />
             </div>*/}
           </div>
         </div>
         {artistsArtworks !== undefined ? (
-          <GalleryRow artist={artistsArtworks} />
+          <div className={`py-4`}>
+            <h2 className={`text-2xl font-medium`}>
+              {dictionary.gallery.productDetail.otherArtworks}
+            </h2>
+            <GalleryRow artist={artistsArtworks} withoutAvatar={true} />
+          </div>
         ) : null}
       </div>
     </>

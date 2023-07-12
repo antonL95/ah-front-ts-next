@@ -124,7 +124,8 @@
                 "home": "All artworks"
             },
             "description": "About the artwork",
-            "rent": "Rent"
+            "rent": "Rent",
+            "otherArtworks": "Other artworks"
         },
         "artistDetail": {
             "artworks": "Artworks"

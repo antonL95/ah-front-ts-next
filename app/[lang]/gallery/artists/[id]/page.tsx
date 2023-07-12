@@ -85,7 +85,9 @@ const IndexPage = async (props: props) => {
         <div className={`md:grid md:grid-cols-2`}>
           <div className={`container mx-auto`}>
             {artist.bio !== undefined ? (
-              <EditorJsWrapper data={JSON.parse(artist.bio)} />
+              <article className={`prose`}>
+                <EditorJsWrapper data={JSON.parse(artist.bio)} />
+              </article>
             ) : null}
           </div>
           {otherImages.length > 0 ? (
