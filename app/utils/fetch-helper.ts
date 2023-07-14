@@ -15,6 +15,10 @@ export const fetchData = async (
   query: string,
   options = {}
 ) => {
+  options = {
+    ...options,
+    cache: 'no-store',
+  }
   const res = await fetch(`${process.env.STRAPI_URL}/${endpoint}?${query}`, {
     headers: {
       Authorization: `Bearer ${process.env.STRAPI_KEY}`,
