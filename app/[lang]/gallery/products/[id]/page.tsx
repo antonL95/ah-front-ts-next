@@ -1,14 +1,12 @@
 import { getDictionary } from "@/ah/../get-directories";
 import { Locale } from "@/ah/../i18n-config";
 import { fetchArtistWithProducts, fetchProduct } from "@/ah/utils/fetch-helper";
-import Output from "editorjs-react-renderer";
 import Image from "next/image";
 import { carouselItems } from "@/ah/utils/type";
 import CarouselSlider from "@/ah/components/ui/CarouselSlider";
 import { IconArrowRight, IconArrowLeft } from "@tabler/icons-react";
 import Link from "next/link";
 import { BreadcrumbsWrapper } from "@/ah/components/ui/BreadcrumbWrapper";
-import { RentButton } from "@/ah/components/ui/RentButton";
 import GalleryRow from "@/ah/components/ui/GalleryRow";
 import { EditorJsWrapper } from "@/ah/components/ui/EditorJsWrapper";
 import React from "react";
