@@ -7,8 +7,9 @@ import marekImage from "@/ah/img/marek.webp";
 
 type Props = {
   dictionary: any;
+  lang: string,
 };
-const FooterSection = ({ dictionary }: Props) => {
+const FooterSection = ({ dictionary, lang }: Props) => {
   return (
     <div className={`bg-black`}>
       <section
@@ -33,6 +34,7 @@ const FooterSection = ({ dictionary }: Props) => {
           />
           <GalleryButton
             dictionary={dictionary}
+            lang={lang}
             classStyles={`bg-black text-white border border-white hover:bg-white hover:text-black md:mt-0 md:mb-0`}
           />
         </div>
