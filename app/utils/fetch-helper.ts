@@ -305,6 +305,7 @@ export const fetchProduct = async (lang: string, id: number | string) => {
 export const fetchArtistWithProducts = async (
   lang: string,
   id: number | string,
+  areProductsNeeded: boolean,
   productId?: number | string,
   options?: any
 ) => {
@@ -391,23 +392,25 @@ export const fetchArtistWithProducts = async (
 
   const productData = await productRes.json();
 
-  if (productData.data.length <= 0) {
+  if (productData.data.length <= 0 && areProductsNeeded) {
     return;
   }
 
-  for (const product of productData.data) {
-    const itemAttr = product.attributes;
-    const medium = itemAttr.images.data[0].attributes.formats.medium;
-    products.push({
-      id: product.id,
-      image: {
-        url: medium.url,
-        width: medium.width,
-        height: medium.height,
-      },
-      name: itemAttr.name,
-      href: product.id,
-    });
+  if (productData.data.length > 0) {
+    for (const product of productData.data) {
+      const itemAttr = product.attributes;
+      const medium = itemAttr.images.data[0].attributes.formats.medium;
+      products.push({
+        id: product.id,
+        image: {
+          url: medium.url,
+          width: medium.width,
+          height: medium.height,
+        },
+        name: itemAttr.name,
+        href: product.id,
+      });
+    }
   }
 
   const artistAttr = item.attributes;

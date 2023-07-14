@@ -27,7 +27,8 @@ const IndexPage = async (props: props) => {
   const artistsArtworks = await fetchArtistWithProducts(
     props.params.lang,
     product.artist.id,
-    product.id
+    true,
+    product.id,
   );
   const elements: carouselItems = [];
   const breadcrumbs = [

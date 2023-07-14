@@ -23,7 +23,8 @@ const IndexPage = async (props: props) => {
 
   const artist = await fetchArtistWithProducts(
     props.params.lang,
-    props.params.id
+    props.params.id,
+    false,
   );
 
   if (artist === undefined) {
