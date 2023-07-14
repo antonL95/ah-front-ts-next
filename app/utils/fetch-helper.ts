@@ -119,55 +119,59 @@ export const fetchArtistsWithProducts = async (
 
   let artistsHelper = [];
   for (const item of data.data) {
-    const itemAttr = item.attributes;
-    const artist = itemAttr.artist.data;
-    const filters = itemAttr.filters.data;
-    const artistId = artist.id;
-    const artistName = artist.attributes.name;
-    const artistProfileImage =
-      artist.attributes.profileImage.data.attributes.formats.thumbnail;
-    const artistHref = artist.id;
+    try {
+      const itemAttr = item.attributes;
+      const artist = itemAttr.artist.data;
+      const filters = itemAttr.filters.data;
+      const artistId = artist.id;
+      const artistName = artist.attributes.name;
+      const artistProfileImage =
+        artist.attributes.profileImage.data.attributes.formats.thumbnail;
+      const artistHref = artist.id;
 
-    const productFilters = filters.map((filter: { id: number | string }) => {
-      return filter.id.toString();
-    });
-
-    if (artistsHelper[artistId] !== undefined) {
-      artistsHelper[artistId].products.push({
-        id: item.id,
-        name: itemAttr.name,
-        image: {
-          url: itemAttr.images.data[0].attributes.formats.medium.url,
-          width: itemAttr.images.data[0].attributes.formats.medium.width,
-          height: itemAttr.images.data[0].attributes.formats.medium.height,
-        },
-        href: item.id,
-        filters: productFilters,
+      const productFilters = filters.map((filter: { id: number | string }) => {
+        return filter.id.toString();
       });
-    } else {
-      artistsHelper[artistId] = {
-        id: artistId,
-        name: artistName,
-        profileImageUrl: {
-          url: artistProfileImage.url,
-          width: artistProfileImage.width,
-          height: artistProfileImage.height,
-        },
-        products: [
-          {
-            id: item.id,
-            name: itemAttr.name,
-            image: {
-              url: itemAttr.images.data[0].attributes.formats.medium.url,
-              width: itemAttr.images.data[0].attributes.formats.medium.width,
-              height: itemAttr.images.data[0].attributes.formats.medium.height,
-            },
-            href: item.id,
-            filters: productFilters,
+
+      if (artistsHelper[artistId] !== undefined) {
+        artistsHelper[artistId].products.push({
+          id: item.id,
+          name: itemAttr.name,
+          image: {
+            url: itemAttr.images.data[0].attributes.formats.medium.url,
+            width: itemAttr.images.data[0].attributes.formats.medium.width,
+            height: itemAttr.images.data[0].attributes.formats.medium.height,
           },
-        ],
-        href: artistHref,
-      };
+          href: item.id,
+          filters: productFilters,
+        });
+      } else {
+        artistsHelper[artistId] = {
+          id: artistId,
+          name: artistName,
+          profileImageUrl: {
+            url: artistProfileImage.url,
+            width: artistProfileImage.width,
+            height: artistProfileImage.height,
+          },
+          products: [
+            {
+              id: item.id,
+              name: itemAttr.name,
+              image: {
+                url: itemAttr.images.data[0].attributes.formats.medium.url,
+                width: itemAttr.images.data[0].attributes.formats.medium.width,
+                height: itemAttr.images.data[0].attributes.formats.medium.height,
+              },
+              href: item.id,
+              filters: productFilters,
+            },
+          ],
+          href: artistHref,
+        };
+      }
+    } catch (error) {
+      console.log(error);
     }
   }
 
