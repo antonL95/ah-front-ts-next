@@ -122,7 +122,7 @@ const IndexPage = async (props: props) => {
             <p className="md:my-8">
               by{" "}
               <Link
-                href={`/gallery/artists/${product.artist.id}`}
+                href={`/${props.params.lang}/gallery/artists/${product.artist.id}`}
                 className="text-gray-60 underline"
               >
                 {product.artist.name}
@@ -145,7 +145,7 @@ const IndexPage = async (props: props) => {
             <h2 className={`text-2xl font-medium`}>
               {dictionary.gallery.productDetail.otherArtworks}
             </h2>
-            <GalleryRow artist={artistsArtworks} withoutAvatar={true} />
+            <GalleryRow lang={props.params.lang} artist={artistsArtworks} withoutAvatar={true} />
           </div>
         ) : null}
       </div>

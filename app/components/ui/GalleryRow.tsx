@@ -9,6 +9,7 @@ import CarouselSlider from "@/ah/components/ui/CarouselSlider";
 
 type props = {
   artist: artist;
+  lang: string;
   withoutAvatar?: boolean;
 };
 const GalleryRow = (props: props) => {
@@ -19,7 +20,7 @@ const GalleryRow = (props: props) => {
       carouselItems.push({
         id: item.id,
         element: (
-          <Link href={`/gallery/products/${item.id}`} key={`${item.id}-link`}>
+          <Link href={`/${props.lang}/gallery/products/${item.id}`} key={`${item.id}-link`}>
             <div key={`${item.id}-div`} className={`max-w-[300px] text-center`}>
               <Image
                 src={item.image.url}
@@ -50,7 +51,7 @@ const GalleryRow = (props: props) => {
             className={`h-[80px] w-[80px] rounded-full`}
           />
           <Link
-            href={`/gallery/artists/${props.artist.href}`}
+            href={`/${props.lang}/gallery/artists/${props.artist.href}`}
             className={`flex flex-col justify-items-center`}
           >
             <span className={`my-auto self-center pl-2 text-2xl`}>

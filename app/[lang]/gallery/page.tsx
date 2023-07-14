@@ -92,6 +92,7 @@ const IndexPage = async (props: props) => {
             <div key={artist.id} className={`even:bg-gray odd:bg-white`}>
               <div className={`container mx-auto`}>
                 <GalleryRow
+                  lang={props.params.lang}
                   key={`${artist.id}-${new Date().getTime()}`}
                   artist={artist}
                 />

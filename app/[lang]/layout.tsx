@@ -45,7 +45,7 @@ const Root = async ({ children, params }: Props) => {
     <html lang={params.lang}>
       <body>
         <header className={`sticky top-0 z-50`}>
-          <NavigationBar dictionary={dictionary} />
+          <NavigationBar dictionary={dictionary} lang={params.lang} />
         </header>
         <main className={`relative`}>{children}</main>
         <footer>

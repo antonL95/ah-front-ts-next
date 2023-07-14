@@ -13,9 +13,10 @@ import NavigationHash from "@/ah/components/ui/NavigationHash";
 
 type NavbarProps = {
   dictionary: any;
+  lang: string;
 };
 
-const NavigationBar = ({ dictionary }: NavbarProps) => {
+const NavigationBar = ({ dictionary, lang }: NavbarProps) => {
   const [opened, { toggle, close }] = useDisclosure(false);
 
   return (
@@ -23,7 +24,7 @@ const NavigationBar = ({ dictionary }: NavbarProps) => {
       <div className={`p-4 md:container md:mx-auto md:flex md:justify-between`}>
         <div className={`flex items-center justify-between`}>
           <div className={``}>
-            <Link href={`/`} onClick={close}>
+            <Link href={`/${lang}/`} onClick={close}>
               <Image
                 src={logo}
                 alt="artists hero logo"
@@ -57,11 +58,13 @@ const NavigationBar = ({ dictionary }: NavbarProps) => {
           >
             <NavigationHash
               close={close}
+              lang={lang}
               className={`text-center md:hidden`}
               dictionary={dictionary}
             />
             <GalleryButton
               close={close}
+              lang={lang}
               dictionary={dictionary}
               classStyles={`bg-white text-black border-black border hover:bg-black hover:text-white`}
             />

@@ -34,7 +34,7 @@ const IndexPage = async (props: props) => {
   const breadcrumbs = [
     {
       name: dictionary.gallery.productDetail.breadcrumb.home,
-      href: "/gallery",
+      href: `${props.params.lang}/gallery`,
     },
     { name: artist.name, href: `` },
   ];
@@ -143,7 +143,7 @@ const IndexPage = async (props: props) => {
         <h2 className={`text-3xl text-black`}>
           {dictionary.gallery.artistDetail.artworks}
         </h2>
-        <GalleryRow artist={artist} withoutAvatar={true} />
+        <GalleryRow lang={props.params.lang} artist={artist} withoutAvatar={true} />
       </div>
       <div className={`container mx-auto py-5 md:py-10`}>
         <BreadcrumbsWrapper items={breadcrumbs} />
