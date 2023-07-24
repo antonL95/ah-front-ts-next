@@ -10,6 +10,7 @@ export async function GET(request: Request) {
   const secret = searchParams.get("secret");
   const id = searchParams.get("id");
   const endpoint = searchParams.get("endpoint");
+  const locale = searchParams.get("locale");
 
   // Check the secret and next parameters
   // This secret should only be known to this route handler and the CMS
@@ -29,11 +30,13 @@ export async function GET(request: Request) {
           $eq: id,
         },
       },
+      locale: locale,
     },
     {
       encodeValuesOnly: true,
     }
   );
+
   const res = await fetchData(endpoint, query);
   const data = await res.json();
 
@@ -42,9 +45,9 @@ export async function GET(request: Request) {
 
   let returnUrl;
   if (endpoint === "artists") {
-    returnUrl = "/gallery/artists/" + data.data[0].id;
+    returnUrl = `/${locale}/gallery/artists/${data.data[0].id}`;
   } else if (endpoint === "products") {
-    returnUrl = "/gallery/products/" + data.data[0].id;
+    returnUrl = `/${locale}/gallery/products/${data.data[0].id}`;
   } else {
     returnUrl = "/";
   }
