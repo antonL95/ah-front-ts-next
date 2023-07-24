@@ -15,11 +15,11 @@ const FooterSection = ({ dictionary, lang }: Props) => {
       <section
         className={`container grid grid-cols-1 items-center justify-center pt-16 md:mx-auto md:flex md:w-5/12 md:flex-col md:justify-center`}
       >
-        <h1
+        <h2
           className={`text-center text-[2rem] font-medium text-white md:mb-12 md:mt-28 md:text-center md:text-5xl 2xl:whitespace-pre-line`}
         >
           {dictionary.footer.headline}
-        </h1>
+        </h2>
         <article
           className={`whitespace-pre-line text-center text-[1rem] text-gray-80 md:mb-16 md:text-lg`}
         >
@@ -38,7 +38,7 @@ const FooterSection = ({ dictionary, lang }: Props) => {
             classStyles={`bg-black text-white border border-white hover:bg-white hover:text-black md:mt-0 md:mb-0`}
           />
         </div>
-        <div>socials</div>
+        {/*<div>socials</div>*/}
         <div className={`text-white`}>
           <h2 className={`p-2.5 text-center text-3xl`}>
             <Image

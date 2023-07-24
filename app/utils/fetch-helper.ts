@@ -251,8 +251,6 @@ export const fetchProduct = async (lang: string, id: number | string) => {
   let publicationState = {};
   const { isEnabled } = draftMode();
 
-  console.log(isEnabled);
-
   if (isEnabled) {
     publicationState = {
       publicationState: "preview",
