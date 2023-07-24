@@ -33,7 +33,7 @@ const IndexPage = async (props: props) => {
   const breadcrumbs = [
     {
       name: dictionary.gallery.productDetail.breadcrumb.home,
-      href: `${props.params.lang}/gallery`,
+      href: `/${props.params.lang}/gallery`,
     },
     { name: artist.name, href: `` },
   ];
