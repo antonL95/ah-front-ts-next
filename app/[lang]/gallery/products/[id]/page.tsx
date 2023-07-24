@@ -11,8 +11,6 @@ import GalleryRow from "@/ah/components/ui/GalleryRow";
 import { EditorJsWrapper } from "@/ah/components/ui/EditorJsWrapper";
 import React from "react";
 
-export const runtime = "edge";
-
 type props = {
   params: {
     lang: Locale;
@@ -135,9 +133,6 @@ const IndexPage = async (props: props) => {
             <article className={`prose`}>
               <EditorJsWrapper data={JSON.parse(product.description)} />
             </article>
-            {/*<div className="my-8">
-              <RentButton product={product} dictionary={dictionary} />
-            </div>*/}
           </div>
         </div>
         {artistsArtworks !== undefined ? (
