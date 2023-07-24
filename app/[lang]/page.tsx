@@ -19,7 +19,6 @@ type Props = {
     lang: Locale;
   };
 };
-export const runtime = "edge";
 
 const IndexPage = async ({ params: { lang } }: Props) => {
   const dictionary = await getDictionary(lang);

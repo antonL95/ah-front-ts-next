@@ -10,7 +10,6 @@ import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { EditorJsWrapper } from "@/ah/components/ui/EditorJsWrapper";
 import { BreadcrumbsWrapper } from "@/ah/components/ui/BreadcrumbWrapper";
 
-export const runtime = "edge";
 
 type props = {
   params: {

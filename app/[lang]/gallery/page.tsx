@@ -8,8 +8,6 @@ import GalleryRow from "@/ah/components/ui/GalleryRow";
 import FilterRow from "@/ah/components/Gallery/Main/FilterRow";
 import { artist } from "@/ah/utils/type";
 
-export const runtime = "edge";
-
 type props = {
   params: {
     lang: Locale;
