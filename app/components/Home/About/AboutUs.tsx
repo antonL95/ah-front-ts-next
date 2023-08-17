@@ -51,7 +51,7 @@ const AboutUs = (props: props) => {
                       {section.text}
                     </p>
                     {section.id === "wrote_about_us" ? (
-                      <div>{linksWroteAboutUs}</div>
+                      ""
                     ) : (
                       ""
                     )}

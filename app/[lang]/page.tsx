@@ -13,6 +13,7 @@ import React from "react";
 import { artworks, carouselItems } from "@/ah/utils/type";
 import * as qs from "qs";
 import { fetchData, fetchLatestProducts } from "@/ah/utils/fetch-helper";
+import MediaSection from "@/ah/components/Home/Media/MediaSection";
 
 type Props = {
   params: {
@@ -54,6 +55,7 @@ const IndexPage = async ({ params: { lang } }: Props) => {
       <HowItWorks dictionary={dictionary} />
       <LatestArtwork dictionary={dictionary} carouselItems={carouselItems} />
       <AboutUs dictionary={dictionary} />
+      <MediaSection dictionary={dictionary} />
     </>
   );
 };
