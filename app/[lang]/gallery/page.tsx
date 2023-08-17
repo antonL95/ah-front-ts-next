@@ -43,7 +43,9 @@ const IndexPage = async (props: props) => {
     props.params.lang,
     selectedArtist
   );
+
   const artists: artist[] = [];
+
   for (const i in data) {
     artists.push({
       name: data[i].name,

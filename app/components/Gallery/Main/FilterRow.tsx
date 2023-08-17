@@ -49,7 +49,7 @@ const FilterRow = (props: props) => {
         >
           <div>
             <Menu.Button
-              className={`z-50 w-full cursor-pointer border border-black px-8 py-4 md:w-56`}
+              className={`z-50 w-full cursor-pointer border border-black px-8 py-4 md:w-56 hover:bg-gray-100`}
             >
               {props.dictionary.gallery.filterRow.artists}
             </Menu.Button>
@@ -70,7 +70,7 @@ const FilterRow = (props: props) => {
               {props.artists.map((artist) => {
                 return (
                   <div
-                    className={`py-1`}
+                    className={`py-1 bg-white`}
                     key={`${new Date().getTime()}-${artist.id}-div`}
                   >
                     <Menu.Item>
@@ -83,7 +83,7 @@ const FilterRow = (props: props) => {
                               createQueryString("artist", artist.name)
                           );
                         }}
-                        className={`flex w-full cursor-pointer flex-row px-4 py-2 text-sm`}
+                        className={`flex w-full cursor-pointer flex-row px-4 py-2 text-sm hover:bg-gray-100`}
                       >
                         <span
                           className={`${
@@ -119,7 +119,7 @@ const FilterRow = (props: props) => {
             >
               <div>
                 <Menu.Button
-                  className={`z-50 w-full cursor-pointer border-b border-l border-r border-black px-8 py-4 md:w-56 md:border md:border-black`}
+                  className={`z-50 w-full cursor-pointer border-b border-l border-r border-black px-8 py-4 md:w-56 md:border md:border-black hover:bg-gray-100`}
                 >
                   {filter.type}
                 </Menu.Button>
@@ -153,7 +153,7 @@ const FilterRow = (props: props) => {
                                   createQueryString(filter.type, value.value)
                               );
                             }}
-                            className={`flex w-full cursor-pointer flex-row px-4 py-2 text-sm`}
+                            className={`flex w-full cursor-pointer flex-row px-4 py-2 text-sm hover:bg-gray-100`}
                           >
                             <span
                               className={`${
@@ -181,11 +181,11 @@ const FilterRow = (props: props) => {
         props.selectedArtist !== undefined ? (
           <Menu
             as="div"
-            className={`relative inline-block w-full text-left md:w-56  `}
+            className={`relative inline-block w-full text-left md:w-56`}
           >
             <div>
               <Menu.Button
-                className={`z-50 w-full cursor-pointer px-8 py-4`}
+                className={`z-50 w-full cursor-pointer px-8 py-4 hover:bg-gray-100`}
                 onClick={() => {
                   router.push(pathname);
                 }}

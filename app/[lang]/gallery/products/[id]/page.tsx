@@ -58,7 +58,7 @@ const IndexPage = async (props: props) => {
           height={image.height}
           width={image.width}
           key={image.url}
-          className={`h-[300px] md:h-[600px]`}
+          className={`h-[300px] md:h-[600px] w-auto`}
         />
       ),
     });
