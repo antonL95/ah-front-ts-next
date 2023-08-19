@@ -14,6 +14,7 @@ export const metadata = {
   title: `Artist's hero`,
   description: `Artist's hero description`,
 };
+export const dynamic = "force-dynamic";
 
 async function getData() {
   const response = await fetch(`${process.env.STRAPI_URL}references`, {

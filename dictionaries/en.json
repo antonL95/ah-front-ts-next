@@ -131,6 +131,10 @@
         "filterRow": {
             "artists": "Artists",
             "clearAll": "Clear all"
+        },
+        "other": {
+            "readMore": "Read more",
+            "noProductsFound": "No artworks found"
         }
     }
 }

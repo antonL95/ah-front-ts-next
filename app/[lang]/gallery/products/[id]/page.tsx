@@ -25,6 +25,7 @@ const IndexPage = async (props: props) => {
     product.artist.id,
     true,
     product.id,
+    {cache: 'no-store'}
   );
   const elements: carouselItems = [];
   const breadcrumbs = [

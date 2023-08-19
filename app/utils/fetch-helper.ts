@@ -17,8 +17,8 @@ export const fetchData = async (
 ) => {
   options = {
     ...options,
-    cache: 'no-store',
-  }
+    // cache: 'no-store',
+  };
   const res = await fetch(`${process.env.STRAPI_URL}/${endpoint}?${query}`, {
     headers: {
       Authorization: `Bearer ${process.env.STRAPI_KEY}`,
@@ -36,7 +36,16 @@ export const fetchData = async (
 };
 
 export const fetchLatestProducts = async (lang: string) => {
+  let publicationState = {};
+  const isEnabled = isDraftModeTrue();
+
+  if (isEnabled) {
+    publicationState = {
+      publicationState: "preview",
+    };
+  }
   const query = qs.stringify({
+    ...publicationState,
     populate: "images",
     locale: [lang],
   });
@@ -66,11 +75,12 @@ export const fetchLatestProducts = async (lang: string) => {
 
 export const fetchArtistsWithProducts = async (
   lang: string,
-  artistName?: string
+  artistName?: string,
+  options?: any
 ) => {
   let publicationState = {};
   let filters = {};
-  const { isEnabled } = draftMode();
+  const isEnabled = isDraftModeTrue();
 
   if (isEnabled) {
     publicationState = {
@@ -118,7 +128,7 @@ export const fetchArtistsWithProducts = async (
     }
   );
 
-  const res = await fetchData("products", query);
+  const res = await fetchData("products", query, options);
   const data = await res.json();
 
   let artistsHelper = [];
@@ -165,7 +175,8 @@ export const fetchArtistsWithProducts = async (
               image: {
                 url: itemAttr.images.data[0].attributes.formats.medium.url,
                 width: itemAttr.images.data[0].attributes.formats.medium.width,
-                height: itemAttr.images.data[0].attributes.formats.medium.height,
+                height:
+                  itemAttr.images.data[0].attributes.formats.medium.height,
               },
               href: item.id,
               filters: productFilters,
@@ -190,7 +201,7 @@ export const fetchArtistsWithProducts = async (
 
 export const fetchFiltersAndValues = async (lang: string) => {
   let publicationState = {};
-  const { isEnabled } = draftMode();
+  const isEnabled = isDraftModeTrue();
 
   if (isEnabled) {
     publicationState = {
@@ -249,7 +260,7 @@ export const fetchFiltersAndValues = async (lang: string) => {
 
 export const fetchProduct = async (lang: string, id: number | string) => {
   let publicationState = {};
-  const { isEnabled } = draftMode();
+  const isEnabled = isDraftModeTrue();
 
   if (isEnabled) {
     publicationState = {
@@ -272,7 +283,7 @@ export const fetchProduct = async (lang: string, id: number | string) => {
     }
   );
 
-  const res = await fetchData("products", query);
+  const res = await fetchData("products", query, { cache: "no-store" });
   const data = await res.json();
   const item = data.data[0];
 
@@ -308,6 +319,53 @@ export const fetchProduct = async (lang: string, id: number | string) => {
   return product;
 };
 
+export const fetchAllArtists = async (lang: string, options?: any) => {
+  let publicationState = {};
+  const isEnabled = isDraftModeTrue();
+
+  if (isEnabled) {
+    publicationState = {
+      publicationState: "preview",
+    };
+  }
+  const query = qs.stringify(
+    {
+      ...publicationState,
+      populate: ["profileImage", "name"],
+      locale: [lang],
+    },
+    {
+      encodeValuesOnly: true,
+    }
+  );
+  const res = await fetchData("artists", query, options);
+  const data = await res.json();
+
+  const artists: artist[] = [];
+
+  for (const item of data.data) {
+    const artistAttr = item.attributes;
+    const thumbnailProfile =
+      artistAttr.profileImage.data.attributes.formats.thumbnail;
+
+    const artist: artist = {
+      id: item.id,
+      profileImageUrl: {
+        url: thumbnailProfile.url,
+        width: thumbnailProfile.width,
+        height: thumbnailProfile.height,
+      },
+      name: artistAttr.name,
+      products: [],
+      href: item.id,
+    };
+
+    artists.push(artist);
+  }
+
+  return artists;
+};
+
 export const fetchArtistWithProducts = async (
   lang: string,
   id: number | string,
@@ -316,7 +374,7 @@ export const fetchArtistWithProducts = async (
   options?: any
 ) => {
   let publicationState = {};
-  const { isEnabled } = draftMode();
+  const isEnabled = isDraftModeTrue();
 
   if (isEnabled) {
     publicationState = {
@@ -458,3 +516,13 @@ export const fetchArtistWithProducts = async (
 
   return artist;
 };
+
+
+function isDraftModeTrue(): boolean {
+  try {
+    const {isEnabled} = draftMode()
+    return isEnabled;
+  } catch (error) {
+    return false;
+  }
+}

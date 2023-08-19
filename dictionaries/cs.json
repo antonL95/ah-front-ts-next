@@ -134,6 +134,7 @@
         }
     },
     "other": {
-        "readMore": "Read more"
+        "readMore": "Read more",
+        "noProductsFound": "No artworks found"
     }
 }

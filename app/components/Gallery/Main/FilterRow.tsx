@@ -65,7 +65,7 @@ const FilterRow = (props: props) => {
             leaveTo={`transform opacity-0 scale-95`}
           >
             <Menu.Items
-              className={`bg-gray z-10 mt-[-1px] w-full origin-top-right border border-black md:absolute md:w-56`}
+              className={`bg-gray z-10 mt-[-1px] w-full origin-top-right border border-black md:absolute md:w-72`}
             >
               {props.artists.map((artist) => {
                 return (
