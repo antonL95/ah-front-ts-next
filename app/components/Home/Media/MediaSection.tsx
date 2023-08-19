@@ -56,7 +56,7 @@ function MediaSection(props: Props) {
       href: "https://www.capexus.cz/vernisaz-enjoy-art-works",
     },
     {
-      name: "Umění nás nutí ke kritickému myšlení",
+      name: "Umění nás inspiruje dívat se znovu a jinak: Podcast",
       image: media7,
       href: "https://open.spotify.com/episode/3JHFnGkyjvKK9IZmWxuXOZ?si=nPrGmX77Qdakazg14hQNow&nd=1",
     },
