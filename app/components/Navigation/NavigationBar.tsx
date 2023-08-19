@@ -10,10 +10,11 @@ import crossIcon from "@/ah/img/cross.svg";
 import ContactModalWithNavigationButton from "@/ah/components/ui/ContactModalWithNavigationButton";
 import GalleryButton from "@/ah/components/ui/GalleryButton";
 import NavigationHash from "@/ah/components/ui/NavigationHash";
+import LocaleSwitcher from "@/ah/components/Navigation/LocaleSwitcher";
 
 type NavbarProps = {
   dictionary: any;
-  lang: string;
+  lang: "en" | "cs";
 };
 
 const NavigationBar = ({ dictionary, lang }: NavbarProps) => {
@@ -73,6 +74,7 @@ const NavigationBar = ({ dictionary, lang }: NavbarProps) => {
               onClick={close}
               classStyles={`bg-black text-white border-black border hover:bg-white hover:text-black`}
             />
+            {/*<LocaleSwitcher locale={lang}/>*/}
           </div>
         </div>
       </div>

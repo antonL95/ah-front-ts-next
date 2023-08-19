@@ -7,7 +7,7 @@ import marekImage from "@/ah/img/marek.webp";
 
 type Props = {
   dictionary: any;
-  lang: string,
+  lang: string;
 };
 const FooterSection = ({ dictionary, lang }: Props) => {
   return (
@@ -44,7 +44,7 @@ const FooterSection = ({ dictionary, lang }: Props) => {
             <Image
               src={marekImage}
               alt={`ceo`}
-              className={`mx-auto mb-10 w-6/12`}
+              className={`mx-auto mb-10 w-6/12 rounded-full`}
             />
             Marek Jakúbek, Founder & CEO
           </h2>

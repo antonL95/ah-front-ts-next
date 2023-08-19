@@ -83,7 +83,7 @@ const IndexPage = async (props: props) => {
       <div className="container mx-auto py-5 md:py-10">
         <h1 className={`text-5xl text-black`}>{artist.name}</h1>
         <div className={`md:grid md:grid-cols-2`}>
-          <div className={`container mx-auto`}>
+          <div className={``}>
             {artist.bio !== undefined ? (
               <article className={`prose`}>
                 <EditorJsWrapper data={JSON.parse(artist.bio)} />

@@ -1,6 +1,7 @@
 import React, { ReactElement } from "react";
 import Sections from "@/ah/components/ui/Sections";
-import capexus from "@/ah/img/capexus.webp";
+import capexus from "@/ah/img/capexus.png";
+import proxenta from "@/ah/img/proxenta.png";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -20,6 +21,11 @@ const wroteAboutUs = [
     alt: "capexus",
     href: "https://www.capexus.cz/udalosti/sila-umeni-v-modernim-pracovnim-prostredi",
   },
+  {
+    imageUrl: proxenta,
+    alt: "proxenta",
+    href: "https://www.kesselbauer.sk/sk/novinky/atrium-projektu-kesselbauer-ozivi-originalne-umelecke-dielo",
+  },
 ];
 
 const AboutUs = (props: props) => {
@@ -27,9 +33,9 @@ const AboutUs = (props: props) => {
 
   for (const article of wroteAboutUs) {
     linksWroteAboutUs.push(
-      <div key={article.alt}>
+      <div key={article.alt} className={`my-16`}>
         <Link href={article.href} target={`_blank`}>
-          <Image src={article.imageUrl} alt={article.alt} />
+          <Image src={article.imageUrl} alt={article.alt} className={`w-auto max-h-[100px]`}/>
         </Link>
       </div>
     );
@@ -50,8 +56,8 @@ const AboutUs = (props: props) => {
                     <p className={`whitespace-pre-line md:pr-20`}>
                       {section.text}
                     </p>
-                    {section.id === "wrote_about_us" ? (
-                      ""
+                    {section.id === "our_clients" ? (
+                      <div>{linksWroteAboutUs}</div>
                     ) : (
                       ""
                     )}
