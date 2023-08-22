@@ -480,7 +480,7 @@ export const fetchArtistWithProducts = async (
   const artistAttr = item.attributes;
   const thumbnailProfile =
     artistAttr.profileImage.data.attributes.formats.thumbnail;
-  const coverImage = artistAttr.coverImage.data.attributes.formats.large;
+  const coverImage = artistAttr.coverImage.data.attributes.formats.medium;
   const otherImages = [];
   if (
     artistAttr.otherImages.data !== null &&
@@ -488,9 +488,9 @@ export const fetchArtistWithProducts = async (
   ) {
     for (const image of artistAttr.otherImages.data) {
       otherImages.push({
-        url: image.attributes.formats.large.url,
-        width: image.attributes.formats.large.width,
-        height: image.attributes.formats.large.height,
+        url: image.attributes.formats.medium.url,
+        width: image.attributes.formats.medium.width,
+        height: image.attributes.formats.medium.height,
       });
     }
   }
