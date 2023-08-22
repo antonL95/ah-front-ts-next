@@ -59,12 +59,7 @@ const IndexPage = async (props: props) => {
           let hasAllFilters = false;
 
           for (const filter of filteredSearchParams) {
-            for (const productFilter of product.filters) {
-              if (filter === productFilter) {
-                hasAllFilters = true;
-                break;
-              }
-            }
+            hasAllFilters = product.filters.includes(filter);
           }
 
           return hasAllFilters;
