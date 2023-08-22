@@ -119,7 +119,7 @@ const IndexPage = async (props: props) => {
           <div className={`md:mx-auto md:w-8/12`}>
             <h1 className="my-4 text-3xl md:my-0">{product.name}</h1>
             <p className="md:my-8">
-              by{" "}
+              {dictionary.gallery.productDetail.by}{" "}
               <Link
                 href={`/${props.params.lang}/gallery/artists/${product.artist.id}`}
                 className="text-gray-60 underline"

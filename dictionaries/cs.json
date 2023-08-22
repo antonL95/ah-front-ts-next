@@ -128,7 +128,8 @@
             },
             "description": "O obrázcích",
             "rent": "Pronájem",
-            "otherArtworks": "Ostatní umělecká díla"
+            "otherArtworks": "Ostatní umělecká díla",
+            "by": "od"
         },
         "artistDetail": {
             "artworks": "Umělecká díla"

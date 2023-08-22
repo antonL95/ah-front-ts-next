@@ -128,7 +128,8 @@
             },
             "description": "About the artwork",
             "rent": "Rent",
-            "otherArtworks": "Other artworks"
+            "otherArtworks": "Other artworks",
+            "by": "by"
         },
         "artistDetail": {
             "artworks": "Artworks"
