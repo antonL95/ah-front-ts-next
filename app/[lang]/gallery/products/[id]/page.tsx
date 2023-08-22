@@ -1,6 +1,5 @@
 import { getDictionary } from "@/ah/../get-directories";
 import { Locale } from "@/ah/../i18n-config";
-import { fetchArtistWithProducts, fetchProduct } from "@/ah/utils/fetch-helper";
 import Image from "next/image";
 import { carouselItems } from "@/ah/utils/type";
 import CarouselSlider from "@/ah/components/ui/CarouselSlider";
@@ -10,6 +9,8 @@ import { BreadcrumbsWrapper } from "@/ah/components/ui/BreadcrumbWrapper";
 import GalleryRow from "@/ah/components/ui/GalleryRow";
 import { EditorJsWrapper } from "@/ah/components/ui/EditorJsWrapper";
 import React from "react";
+import { fetchArtistWithProducts } from "@/ah/utils/fetch-artist-products";
+import { fetchProduct } from "@/ah/utils/fetch-product";
 
 type props = {
   params: {
@@ -25,7 +26,6 @@ const IndexPage = async (props: props) => {
     product.artist.id,
     true,
     product.id,
-    {cache: 'no-store'}
   );
   const elements: carouselItems = [];
   const breadcrumbs = [

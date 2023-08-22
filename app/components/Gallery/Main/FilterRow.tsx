@@ -51,7 +51,7 @@ const FilterRow = (props: props) => {
             <Menu.Button
               className={`z-50 w-full cursor-pointer border border-black px-8 py-4 md:w-56 hover:bg-gray-100`}
             >
-              {props.dictionary.gallery.filterRow.artists}
+              {props.dictionary.gallery.filterRow.artists.toLowerCase()}
             </Menu.Button>
           </div>
 
@@ -98,7 +98,7 @@ const FilterRow = (props: props) => {
                             alt={artist.name}
                             width={30}
                             height={30}
-                            className={`mx-2 inline-block rounded-full`}
+                            className={`mx-2 inline-block rounded-full w-[30px] h-[30px] object-contain object-center`}
                           />
                           {artist.name}
                         </span>

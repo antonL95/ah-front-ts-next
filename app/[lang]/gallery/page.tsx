@@ -1,15 +1,13 @@
 import { getDictionary } from "@/ah/../get-directories";
 import { Locale } from "@/ah/../i18n-config";
-import {
-  fetchAllArtists,
-  fetchArtistsWithProducts,
-  fetchFiltersAndValues,
-} from "@/ah/utils/fetch-helper";
 import GalleryRow from "@/ah/components/ui/GalleryRow";
 import FilterRow from "@/ah/components/Gallery/Main/FilterRow";
 import { artist } from "@/ah/utils/type";
 import { Suspense } from "react";
 import DefaultSpinner from "@/ah/components/ui/DefaultSpinner";
+import { fetchFilters } from "@/ah/utils/fetch-filters";
+import { fetchAllArtists } from "@/ah/utils/fetch-artists";
+import { fetchArtistsWithProducts } from "@/ah/utils/fetch-artists-products";
 
 type props = {
   params: {
@@ -22,8 +20,8 @@ type props = {
 
 const IndexPage = async (props: props) => {
   const dictionary: any = await getDictionary(props.params.lang);
-  const filters = await fetchFiltersAndValues(props.params.lang);
-  const allArtists = await fetchAllArtists(props.params.lang);
+  const filters = await fetchFilters(props.params.lang, { cache: "no-store" });
+  const allArtists = await fetchAllArtists(props.params.lang, { cache: "no-store" });
 
   const filteredSearchParams: string[] = [];
   let selectedArtist = undefined;
@@ -43,40 +41,44 @@ const IndexPage = async (props: props) => {
     }
   }
 
-  const artists: artist[] = [];
-
-  for (const artist of allArtists) {
-    artists.push(artist);
-  }
-
-  const data = await fetchArtistsWithProducts(
+  const artistsWithProducts = await fetchArtistsWithProducts(
     props.params.lang,
     selectedArtist,
     { cache: "no-store" }
   );
 
-  for (const i in data) {
-    if (filteredSearchParams.length > 0) {
-      data[i].products = data[i].products.filter((product) => {
-        if (product.filters === undefined || product.filters.length === 0) {
-          return false;
-        }
-
-        let hasAllFilters = true;
-
-        for (const filter of filteredSearchParams) {
-          if (!product.filters.includes(filter)) {
-            hasAllFilters = false;
+  let filteredArtists: artist[] = [];
+  if (filteredSearchParams.length > 0) {
+    for (const i in artistsWithProducts) {
+      artistsWithProducts[i].products = artistsWithProducts[i].products.filter(
+        (product) => {
+          if (product.filters === undefined || product.filters.length === 0) {
+            return false;
           }
+
+          let hasAllFilters = false;
+
+          for (const filter of filteredSearchParams) {
+            for (const productFilter of product.filters) {
+              if (filter === productFilter) {
+                hasAllFilters = true;
+                break;
+              }
+            }
+          }
+
+          return hasAllFilters;
         }
+      );
 
-        return hasAllFilters;
-      });
-
-      if (data[i].products.length === 0) {
-        delete data[i];
+      if (artistsWithProducts[i].products.length === 0) {
+        delete artistsWithProducts[i];
+      } else {
+        filteredArtists.push(artistsWithProducts[i]);
       }
     }
+  } else {
+    filteredArtists = artistsWithProducts;
   }
 
   return (
@@ -86,11 +88,11 @@ const IndexPage = async (props: props) => {
           dictionary={dictionary}
           filters={filters}
           selectedFilters={filteredSearchParams}
-          artists={artists}
+          artists={allArtists}
           selectedArtist={selectedArtist}
         />
-        {data[0] !== undefined ? (
-          data.map((artist) => {
+        {filteredArtists.length > 0 ? (
+          filteredArtists.map((artist) => {
             return (
               <div key={artist.id} className={`even:bg-gray odd:bg-white`}>
                 <div className={`container mx-auto`}>

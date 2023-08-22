@@ -10,10 +10,9 @@ import LatestArtwork from "@/ah/components/Home/Artwork/LatestArtwork";
 import Link from "next/link";
 import Image from "next/image";
 import React from "react";
-import { artworks, carouselItems } from "@/ah/utils/type";
-import * as qs from "qs";
-import { fetchData, fetchLatestProducts } from "@/ah/utils/fetch-helper";
+import { carouselItems } from "@/ah/utils/type";
 import MediaSection from "@/ah/components/Home/Media/MediaSection";
+import { fetchLatestProducts } from "@/ah/utils/fetch-latest-products";
 
 type Props = {
   params: {

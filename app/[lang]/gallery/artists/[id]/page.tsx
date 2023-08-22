@@ -1,6 +1,5 @@
 import { getDictionary } from "@/ah/../get-directories";
 import { Locale } from "@/ah/../i18n-config";
-import { fetchArtistWithProducts } from "@/ah/utils/fetch-helper";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import GalleryRow from "@/ah/components/ui/GalleryRow";
@@ -9,6 +8,7 @@ import { carouselItems } from "@/ah/utils/type";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { EditorJsWrapper } from "@/ah/components/ui/EditorJsWrapper";
 import { BreadcrumbsWrapper } from "@/ah/components/ui/BreadcrumbWrapper";
+import { fetchArtistWithProducts } from "@/ah/utils/fetch-artist-products";
 
 type props = {
   params: {
