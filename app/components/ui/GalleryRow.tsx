@@ -27,7 +27,7 @@ const GalleryRow = (props: props) => {
                 alt={item.name}
                 width={item.image.width}
                 height={item.image.height}
-                className={`mx-auto max-h-[300px] object-contain`}
+                className={`mx-auto max-h-[300px] object-contain object-center`}
                 key={`${item.id}-image`}
               />
               <h2 key={`${item.id}-h2`} className={``}>

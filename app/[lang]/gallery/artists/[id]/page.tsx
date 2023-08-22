@@ -10,7 +10,6 @@ import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { EditorJsWrapper } from "@/ah/components/ui/EditorJsWrapper";
 import { BreadcrumbsWrapper } from "@/ah/components/ui/BreadcrumbWrapper";
 
-
 type props = {
   params: {
     lang: Locale;
@@ -23,7 +22,7 @@ const IndexPage = async (props: props) => {
   const artist = await fetchArtistWithProducts(
     props.params.lang,
     props.params.id,
-    false,
+    false
   );
 
   if (artist === undefined) {
@@ -50,6 +49,7 @@ const IndexPage = async (props: props) => {
             height={image.width}
             alt={artist.name}
             key={image.url}
+            className={`h-[300px] w-full object-contain object-center md:h-[600px]`}
           />
         ),
       };
@@ -64,7 +64,7 @@ const IndexPage = async (props: props) => {
             alt={artist.name}
             height={artist.coverImageUrl.height}
             width={artist.coverImageUrl.width}
-            className={`z-0 h-[150px] w-full object-cover md:h-[500px]`}
+            className={`z-0 h-[150px] w-full object-contain md:h-[500px]`}
           />
         )}
         <div
@@ -77,7 +77,7 @@ const IndexPage = async (props: props) => {
           alt={artist.name}
           height={200}
           width={200}
-          className={`h-[100px] w-[100px] flex-none rounded-full border-4 border-white md:h-[200px] md:w-[200px]`}
+          className={`h-[100px] w-[100px] object-center object-contain flex-none rounded-full border-4 border-white md:h-[200px] md:w-[200px]`}
         />
       </div>
       <div className="container mx-auto py-5 md:py-10">
@@ -142,7 +142,11 @@ const IndexPage = async (props: props) => {
         <h2 className={`text-3xl text-black`}>
           {dictionary.gallery.artistDetail.artworks}
         </h2>
-        <GalleryRow lang={props.params.lang} artist={artist} withoutAvatar={true} />
+        <GalleryRow
+          lang={props.params.lang}
+          artist={artist}
+          withoutAvatar={true}
+        />
       </div>
       <div className={`container mx-auto py-5 md:py-10`}>
         <BreadcrumbsWrapper items={breadcrumbs} />
