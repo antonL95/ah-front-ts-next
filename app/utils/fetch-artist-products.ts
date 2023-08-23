@@ -120,9 +120,9 @@ export const fetchArtistWithProducts = async (
   const thumbnailProfile =
     artistAttr.profileImage.data.attributes.formats.thumbnail;
   const coverImage =
-    artistAttr.coverImage.data.attributes.formats.medium === undefined
+    artistAttr.coverImage.data.attributes.formats.large === undefined
       ? artistAttr.coverImage.data.attributes
-      : artistAttr.coverImage.data.attributes.formats.medium;
+      : artistAttr.coverImage.data.attributes.formats.large;
   const otherImages = [];
   if (
     artistAttr.otherImages.data !== null &&
