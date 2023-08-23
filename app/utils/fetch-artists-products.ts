@@ -82,14 +82,18 @@ export const fetchArtistsWithProducts = async (
         return filter.id.toString();
       });
 
+      const productImage = itemAttr.images.data[0].attributes.formats.small === null
+                     ? itemAttr.images.data[0].attributes
+                     : itemAttr.images.data[0].attributes.formats.small
+
       if (artistsHelper[artistId] !== undefined) {
         artistsHelper[artistId].products.push({
           id: item.id,
           name: itemAttr.name,
           image: {
-            url: itemAttr.images.data[0].attributes.formats.small.url,
-            width: itemAttr.images.data[0].attributes.formats.small.width,
-            height: itemAttr.images.data[0].attributes.formats.small.height,
+            url: productImage.url,
+            width: productImage.width,
+            height: productImage.height,
           },
           href: item.id,
           filters: productFilters,
@@ -108,10 +112,9 @@ export const fetchArtistsWithProducts = async (
               id: item.id,
               name: itemAttr.name,
               image: {
-                url: itemAttr.images.data[0].attributes.formats.small.url,
-                width: itemAttr.images.data[0].attributes.formats.small.width,
-                height:
-                itemAttr.images.data[0].attributes.formats.small.height,
+                url: productImage.url,
+                width: productImage.width,
+                height: productImage.height,
               },
               href: item.id,
               filters: productFilters,

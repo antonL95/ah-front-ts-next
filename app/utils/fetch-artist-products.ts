@@ -100,7 +100,9 @@ export const fetchArtistWithProducts = async (
   if (productData.data.length > 0) {
     for (const product of productData.data) {
       const itemAttr = product.attributes;
-      const medium = itemAttr.images.data[0].attributes.formats.medium;
+      const medium = itemAttr.images.data[0].attributes.formats.medium === null
+                     ? itemAttr.images.data[0].attributes
+                     : itemAttr.images.data[0].attributes.formats.medium;
       products.push({
         id: product.id,
         image: {
@@ -117,7 +119,10 @@ export const fetchArtistWithProducts = async (
   const artistAttr = item.attributes;
   const thumbnailProfile =
     artistAttr.profileImage.data.attributes.formats.thumbnail;
-  const coverImage = artistAttr.coverImage.data.attributes.formats.medium;
+  const coverImage =
+    artistAttr.coverImage.data.attributes.formats.medium === null
+      ? artistAttr.coverImage.data.attributes
+      : artistAttr.coverImage.data.attributes.formats.medium;
   const otherImages = [];
   if (
     artistAttr.otherImages.data !== null &&
@@ -125,9 +130,9 @@ export const fetchArtistWithProducts = async (
   ) {
     for (const image of artistAttr.otherImages.data) {
       otherImages.push({
-        url: image.attributes.formats.medium.url,
-        width: image.attributes.formats.medium.width,
-        height: image.attributes.formats.medium.height,
+        url: image.attributes.url,
+        width: image.attributes.width,
+        height: image.attributes.height,
       });
     }
   }
