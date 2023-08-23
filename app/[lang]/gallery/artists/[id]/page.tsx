@@ -64,7 +64,7 @@ const IndexPage = async (props: props) => {
             alt={artist.name}
             height={artist.coverImageUrl.height}
             width={artist.coverImageUrl.width}
-            className={`z-0 h-[150px] w-full object-cover object-center md:h-[500px]`}
+            className={`z-0 h-[150px] w-full object-cover object-top md:h-[500px]`}
           />
         )}
         <div
