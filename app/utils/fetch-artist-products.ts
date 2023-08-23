@@ -100,7 +100,7 @@ export const fetchArtistWithProducts = async (
   if (productData.data.length > 0) {
     for (const product of productData.data) {
       const itemAttr = product.attributes;
-      const medium = itemAttr.images.data[0].attributes.formats.medium === null
+      const medium = itemAttr.images.data[0].attributes.formats.medium === undefined
                      ? itemAttr.images.data[0].attributes
                      : itemAttr.images.data[0].attributes.formats.medium;
       products.push({
@@ -120,7 +120,7 @@ export const fetchArtistWithProducts = async (
   const thumbnailProfile =
     artistAttr.profileImage.data.attributes.formats.thumbnail;
   const coverImage =
-    artistAttr.coverImage.data.attributes.formats.medium === null
+    artistAttr.coverImage.data.attributes.formats.medium === undefined
       ? artistAttr.coverImage.data.attributes
       : artistAttr.coverImage.data.attributes.formats.medium;
   const otherImages = [];

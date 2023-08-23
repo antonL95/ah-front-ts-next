@@ -82,7 +82,7 @@ export const fetchArtistsWithProducts = async (
         return filter.id.toString();
       });
 
-      const productImage = itemAttr.images.data[0].attributes.formats.small === null
+      const productImage = itemAttr.images.data[0].attributes.formats.small === undefined
                      ? itemAttr.images.data[0].attributes
                      : itemAttr.images.data[0].attributes.formats.small
 
