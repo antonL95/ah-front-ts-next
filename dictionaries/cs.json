@@ -5,7 +5,7 @@
         "benefits": "Vliv umění",
         "benefitsOfRenting": "Výhody pronájmu",
         "how": "Jak to funguje",
-        "latest": "Nejnovější umění",
+        "latest": "Nejnovější díla",
         "about": "O nás"
     },
     "galleryButton": "Vstoupit do galerie",
@@ -36,7 +36,7 @@
             "headline": "Duševní pohoda a angažovanost",
             "percentage": 94,
             "subheadline": "respondentů se vyjádřilo, že umění činí pracoviště přívětivějším.",
-            "content": "Vzhledem k tomu, že v odvětví služeb tvoří 80 % nákladů lidé, dává absolutní smysl věnovat maximální pozornost svým zaměstnancům a postarat se o to, aby se v práci cítili co nejlépe. Jak říká Sir Richard Branson: \"Postarejte se o vaše lidi, a ti se postarají o váš biznis.\" \n\nPromyšlená instalace umění může udělat skutečný rozdíl. Ohromujících 94 % respondentů uvedlo, že díky umění se cítí v práci přívětivěji. \n\nNestačí, aby umění v kanceláři bylo čistě dekorativní. Potřebuje zaujmout, inspirovat a motivovat. Jedním z účinných přístupů je postavit lidi do centra umělecké iniciativy organizace a zapojit je do procesu výběru, nebo dokonce vytváření umění na pracovišti skrze workshopy. Ukázalo se, že tento druh přístupu má velmi pozitivní vliv na morálku zaměstnanců a jejich vztah k organizaci jako také. \n\nV post-pandemických časech, definovaných úspornými opatřeními je snadné zapomenout, že kultura, umění a design mohou zvýšit individuální i kolektivní blahobyt. To je klíčová úvaha vzhledem k tomu, že žijeme v době měnících se pracovních stylů, kdy se mnozí mohou rozhodnout pracovat odkudkoliv. Investice do vybavení a zážitků, je poměrně rafinovaná strategie jak přitáhnout zaměstnance zpět do kanceláře. Umění může k této strategií významně přispět.\n\nProč vůbec záleží na fyzické přítomnosti kolektivu? Fyzická přítomnost lidí pomáhá budovat smysluplné vztahy založené na důvěře, empatií a umožňuje kreativní přístup k řešení problematik, což je pro vysoce výkonné společnosti absolutně klíčové."
+            "content": "Vzhledem k tomu, že v odvětví služeb tvoří 80 % nákladů lidé, dává absolutní smysl věnovat maximální pozornost svým zaměstnancům a postarat se o to, aby se v práci cítili co nejlépe. Jak říká Sir Richard Branson: \"Postarejte se o vaše lidi, a ti se postarají o váš byznys.\" \n\nPromyšlená instalace umění může udělat skutečný rozdíl. Ohromujících 94 % respondentů uvedlo, že díky umění se cítí v práci přívětivěji. \n\nNestačí, aby umění v kanceláři bylo čistě dekorativní. Potřebuje zaujmout, inspirovat a motivovat. Jedním z účinných přístupů je postavit lidi do centra umělecké iniciativy organizace a zapojit je do procesu výběru, nebo dokonce vytváření umění na pracovišti skrze workshopy. Ukázalo se, že tento druh přístupu má velmi pozitivní vliv na morálku zaměstnanců a jejich vztah k organizaci jako také. \n\nV post-pandemických časech, definovaných úspornými opatřeními je snadné zapomenout, že kultura, umění a design mohou zvýšit individuální i kolektivní blahobyt. To je klíčová úvaha vzhledem k tomu, že žijeme v době měnících se pracovních stylů, kdy se mnozí mohou rozhodnout pracovat odkudkoliv. Investice do vybavení a zážitků, je poměrně rafinovaná strategie jak přitáhnout zaměstnance zpět do kanceláře. Umění může k této strategií významně přispět.\n\nProč vůbec záleží na fyzické přítomnosti kolektivu? Fyzická přítomnost lidí pomáhá budovat smysluplné vztahy založené na důvěře, empatií a umožňuje kreativní přístup k řešení problematik, což je pro vysoce výkonné společnosti absolutně klíčové."
         },
         "identity": {
             "headline": "Identita a brand",
@@ -119,7 +119,7 @@
         "headline": "Publikace & média"
     },
     "artworks": {
-        "headline": "Nejnovější umění"
+        "headline": "Nejnovější díla"
     },
     "gallery": {
         "productDetail": {
