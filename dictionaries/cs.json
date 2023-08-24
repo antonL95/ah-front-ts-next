@@ -2,18 +2,18 @@
     "navigation": {
         "intro": "Domů",
         "why": "Proč umění",
-        "benefits": "Výhody",
+        "benefits": "Vliv umění",
         "benefitsOfRenting": "Výhody pronájmu",
         "how": "Jak to funguje",
         "latest": "Nejnovější umění",
         "about": "O nás"
     },
-    "galleryButton": "Prozkoumat umění",
+    "galleryButton": "Vstoupit do galerie",
     "contactButton": "Kontaktujte nás",
     "heroSection": {
         "title": "Unikátní umění pro unikátní byznysy",
         "subtitle": "silou umění",
-        "subtitle1": "Přilákání lidí",
+        "subtitle1": "Přitáhnout pozornost",
         "subtitle2": "Vést lidi",
         "subtitle3": "Inspirovat lidi"
     },
@@ -56,7 +56,7 @@
         "sections": [
             {
                 "headline": "Užívání vs. vlastnictví",
-                "text": "V dnešní, čím dál, tím víc sdílené ekonomice, výhody instantního přístupu k aktivům často převažují nad jejich vlastnictvím. Naším cílem je oprostit organizace od komplexity obstarávání umění - jeho nákupu a prodeje, oceňování, uměleckého kurátorství, jeho instalace, pojištění, či jejich logistiky. Stručně řečeno, minimalizujeme komplexitu, rizika a náklady spojené s obstaráváním kvalitního současného umění."
+                "text": "Výhody sdílené ekonomiky - instantního přístupu k aktivům často převažují nad jejich vlastnictvím. Platí to i v umění. Naším cílem je oprostit organizace od komplexity obstarávání umění. Nákupu a prodeje, oceňování, uměleckého kurátorství, jeho instalace, pojištění, či logistiky. Stručně řečeno, minimalizujeme komplexitu, rizika a náklady spojené s obstaráváním kvalitního současného umění."
             },
             {
                 "headline": "Kapitálové vs. operativní výdaje",
@@ -64,7 +64,7 @@
             },
             {
                 "headline": "Flexibilita a škálovatelnost",
-                "text": "Je pravda, že každý podnik je jedinečný, avšak každý prochází stejným životním cyklem. Zda byl váš podnik právě založen, rozrůstá se raketovým tempem, nebo se naopak dělí, může být zapotřebí uměleckého portfolia, které se dokáže přizpůsobit aktuálním potřebám vášho biznisu. Pronájem umění umožňuje onu flexibilitu při škálování portfolia. Je libo více, méně nebo úplně jiné umělecké díla, protože kanceláře prošli redesignem? Žádný problém."
+                "text": "Je pravda, že každá organizace je jedinečná, avšak každá prochází stejným životním cyklem. Zda byl váš byznys právě založen, rozrůstá se raketovým tempem, nebo naopak potřebuje opatrně projít ekonomickým útlumem, může být zapotřebí uměleckého portfolia, které se dokáže přizpůsobit aktuálním potřebám. Pronájem umění umožňuje onu flexibilitu při škálování portfolia. Je libo více, méně nebo úplně jiné umělecké díla? Žádný problém."
             }
         ]
     },
@@ -75,13 +75,13 @@
                 "headline": "Sdělte nám svou vizi",
                 "number": "01",
                 "line": "dolů",
-                "text": "Jaká je vaše vize vzhledu a pocitu z vašich kanceláří? Jaké hodnoty žije vaše organizace? Jak chcete, aby se vaši lidé cítili, a jak si představujete, aby se o vás cítili klienti a obchodní partneři? Jakmile pochopíme vaše potřeby a vizi, náš art consultant vám doporučí nejzajímavější umělce a nejvíce rezonující umělecká díla pro váš prostor."
+                "text": "Jaká je vaše vize vzhledu a pocitu z vašich kanceláří? Jaké hodnoty žije vaše organizace? Jak chcete, aby se vaši lidé cítili, a jakou optikou by vás měli vnímat klienti a obchodní partneři? Jakmile pochopíme vaše potřeby, náš umělecký kurátor vám doporučí nejzajímavější umělce a umělecká díla nejvíce rezonující s vašim prostorem a celkovým image organizace."
             },
             {
                 "headline": "Pronájem uměleckých děl",
                 "number": "02",
                 "line": "nahoru",
-                "text": "Není nutno snášení vysokých investic a břemene obstarávání umění ve vlastní režií. Umělecké kurátorství, obchodní a legální záležitosti, logistika, pojištění, instalace, atd. To všechno je v naší kompetenci. Vy si užijte \"umění jako službu\" za zlomek původní ceny uměleckého portfolia."
+                "text": "Není nutno snášet vysoké investice a břemeno obstarávání umění ve vlastní režií. Umělecké kurátorství, obchodní a legální záležitosti, logistika, pojištění i instalace. To všechno je v naší kompetenci. Vy si užijte \"umění jako službu\" za zlomek původní ceny uměleckého portfolia."
             },
             {
                 "headline": "Užijte si flexibilitu",
@@ -92,7 +92,7 @@
             {
                 "headline": "Síla vyššího záměru",
                 "number": "04",
-                "text": "Zatímco si vaše organizace užívá uměleckých zážitků, podporujete mladé lokální umělce tím, že šíříte povědomí o jejich tvorbě a pomáháte jim odemknou dodatečný příjem z pronájmu umění. Máme to v názvu - věříme, že každý umělec si zaslouží svého hrdinu, který ho podpoří jak morálně, tak finančně."
+                "text": "Zatímco si vaše organizace užívá uměleckých zážitků, podporujete mladé lokální umělce tím, že šíříte povědomí o jejich tvorbě a pomáháte jim odemknout dodatečný příjem z pronájmu umění. Máme to v názvu - věříme, že každý umělec si zaslouží svého hrdinu, který ho podpoří jak morálně, tak finančně."
             }
         ]
     },
@@ -101,7 +101,7 @@
             {
                 "id": "about_us",
                 "headline": "O nás",
-                "text": "Marek byl po dlouhá léta odhodlán pomáhat své mámě, výtvarné umělkyni, budovat příjem z její umělecké tvorby skrze prodej děl galeriím a individuálním sběratelům. Avšak zjistil, že monetizace umění není triviální úkol, a to pro většinu umělců. \n\nSkrze uvědomění, že mnoho lidí, potažmo organizací nákup umění radši odloží, protože není vždy lehké mu porozumět, posoudit jeho kvalitu a vůbec, zorientovat se na trhu, vydal se na cestu založení art-sharingové platformy se záměrem umění “demokratizovat”. Přinést to nejkvalitnější z domácí tvorby do veřejného a komerčního prostoru flexibilně, bez rizika a za zlomek ceny - ve formě “umění jako služby”. \n\nMarkovou vášní je propojovat svět umění a byznysu skrz vytváření uměleckých zážitků na míru a za tímto účelem orchestrovat tým uměleckých kurátorů, designérů, architektů, a rozsáhlou síť pečlivě vybraných výtvarných umělců."
+                "text": "Marek byl po dlouhá léta odhodlán pomáhat své mámě, výtvarné umělkyni, budovat příjem z její umělecké tvorby skrze prodej děl galeriím a individuálním sběratelům. Avšak zjistil, že monetizace umění není triviální úkol, a to pro většinu umělců. \n\nDíky uvědomění, že mnoho lidí, potažmo organizací, nákup umění radši odloží, protože není vždy lehké mu porozumět, posoudit jeho kvalitu a vůbec, zorientovat se na trhu, vydal se na cestu založení art-sharingové platformy se záměrem umění “demokratizovat”. Přinést to nejkvalitnější z domácí tvorby do veřejného a komerčního prostoru flexibilně, bez rizika a za zlomek ceny - ve formě “umění jako služby”. \n\nMarkovou vášní je propojovat svět umění a byznysu skrz vytváření uměleckých zážitků na míru a za tímto účelem orchestrovat tým uměleckých kurátorů, designérů, architektů, a rozsáhlou síť pečlivě vybraných výtvarných umělců."
             },
             {
                 "id": "our_why",
