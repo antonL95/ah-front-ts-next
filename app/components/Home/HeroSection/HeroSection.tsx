@@ -13,7 +13,7 @@ const HeroSection = ({ dictionary }: params) => {
       <Image
         src={heroSectionSrc}
         alt="hero section"
-        className={`absolute right-0 top-0 hidden md:block`}
+        className={`absolute right-0 top-0 hidden md:block z-[-1]`}
         priority
       />
       <div className={`container mx-auto`}>
@@ -25,7 +25,7 @@ const HeroSection = ({ dictionary }: params) => {
           </h1>
           <h3 className={`mt-8 flex text-xl md:mt-12 md:text-2xl`}>
             <div
-              className={`relative inline-block h-[33px] w-[155px] md:w-[188px]`}
+              className={`relative inline-block h-[33px] w-[155px] md:w-[226px]`}
             >
               <span className={`absolute animate-topToBottom opacity-0`}>
                 {dictionary.heroSection.subtitle1}
