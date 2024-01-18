@@ -7,8 +7,8 @@ import Creativity from "@/ah/components/ui/icon/creativity";
 import Branding from "@/ah/components/ui/icon/branding";
 import Wellbeing from "@/ah/components/ui/icon/wellbeing";
 import Csr from "@/ah/components/ui/icon/csr";
-import benefitImage1 from "@/ah/img/benefits_1.webp";
-import benefitImage2 from "@/ah/img/benefits_2.webp";
+import benefitImage1 from "@/ah/img/benefits_1.jpg";
+import benefitImage2 from "@/ah/img/benefits_2.jpg";
 import Image from "next/image";
 
 type Benefits = {

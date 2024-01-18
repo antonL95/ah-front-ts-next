@@ -72,7 +72,7 @@ const FooterSection = ({ dictionary, lang }: Props) => {
         <hr
           className={`mb-16 mt-24 h-px w-full border-b border-white border-opacity-20`}
         />
-        <Image src={logoSrc} alt={`logo`} />
+        <Image src={logoSrc} alt={`logo`} width={100} height={100}/>
         <p className={`mt-4 text-xs text-gray-80`}>
           © {new Date().getFullYear()} {`Artist's hero`}{" "}
         </p>

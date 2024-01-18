@@ -1,5 +1,5 @@
 import React from "react";
-import heroSectionSrc from "@/ah/img/hero_section.webp";
+import heroSectionSrc from "@/ah/img/hero_section.jpg";
 import Image from "next/image";
 import Underline from "@/ah/components/ui/icon/underline";
 
@@ -23,7 +23,7 @@ const HeroSection = ({ dictionary }: params) => {
           >
             {dictionary.heroSection.title}
           </h1>
-          <h3 className={`mt-8 flex text-xl md:mt-12 md:text-2xl`}>
+          <h3 className={`mt-8 flex flex-col text-xl md:mt-12 md:text-2xl`}>
             <div
               className={`relative inline-block h-[33px] w-[155px] md:w-[226px]`}
             >
@@ -47,7 +47,7 @@ const HeroSection = ({ dictionary }: params) => {
               </span>
             </div>
             {` `}
-            <div className={`relative inline-block`}>
+            <div className={`relative block`}>
               {dictionary.heroSection.subtitle}
             </div>
           </h3>

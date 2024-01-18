@@ -1,7 +1,7 @@
 "use client";
 
 import Sections from "@/ah/components/ui/Sections";
-import imgSrc from "@/ah/img/why_section.webp";
+import imgSrc from "@/ah/img/why_section.jpg";
 import Image from "next/image";
 import SpoilerExtension from "@/ah/components/ui/SpoilerExtension";
 

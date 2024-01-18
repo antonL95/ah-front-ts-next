@@ -15,7 +15,6 @@ export const fetchFilters = async (lang: string, options?: any) => {
   const query = qs.stringify(
     {
       ...publicationState,
-      populate: ["*"],
       pagination: {
         pageSize: 1000,
         page: 1,
@@ -27,36 +26,42 @@ export const fetchFilters = async (lang: string, options?: any) => {
     }
   );
 
-  const res = await fetchData("filters", query, options);
-  const data = await res.json();
-
-  const filtersHelper = [];
-  for (const item of data.data) {
-    const filterType = item.attributes.type;
-    const filterValue = item.attributes.value;
-    if (filtersHelper[filterType] !== undefined) {
-      filtersHelper[filterType].push({
-        id: item.id,
-        value: filterValue,
-      });
-
-      continue;
-    }
-
-    filtersHelper[filterType] = [
-      {
-        id: item.id,
-        value: filterValue,
-      },
-    ];
-  }
-
   const filters: filters = [];
-  for (const item in filtersHelper) {
-    filters.push({
-      type: item,
-      values: filtersHelper[item],
-    });
+
+  try {
+    const res = await fetchData("filters", query, options);
+    const data = await res.json();
+
+    const filtersHelper = [];
+    for (const item of data.data) {
+      const filterType = item.attributes.type;
+      const filterValue = item.attributes.value;
+      if (filtersHelper[filterType] !== undefined) {
+        filtersHelper[filterType].push({
+          id: item.id,
+          value: filterValue,
+        });
+
+        continue;
+      }
+
+      filtersHelper[filterType] = [
+        {
+          id: item.id,
+          value: filterValue,
+        },
+      ];
+    }
+    for (const item in filtersHelper) {
+      filters.push({
+        type: item,
+        values: filtersHelper[item],
+      });
+    }
+  } catch (error) {
+    console.log(error);
+
+    return filters;
   }
 
   return filters;
