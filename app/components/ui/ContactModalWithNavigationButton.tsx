@@ -3,7 +3,7 @@
 import React from "react";
 import { useDisclosure } from "@mantine/hooks";
 import { Modal } from "@mantine/core";
-import contactSrc from "../../img/contact_image.webp";
+import contactSrc from "../../img/contact_image.jpg";
 import Image from "next/image";
 import ContactForm from "@/ah/components/ui/ContactForm";
 import Portal from "@/ah/components/ui/Portal";
