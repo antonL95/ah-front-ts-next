@@ -1,7 +1,5 @@
 "use client";
 
-import { Button, Card } from "flowbite-react";
-import Image, { StaticImageData } from "next/image";
 import media1 from "@/ah/img/media_1.webp";
 import media2 from "@/ah/img/media_2.webp";
 import media3 from "@/ah/img/media_3.webp";
@@ -10,16 +8,10 @@ import media5 from "@/ah/img/media_5.webp";
 import media6 from "@/ah/img/media_6.webp";
 import media7 from "@/ah/img/media_7.webp";
 import Sections from "@/ah/components/ui/Sections";
+import Posts from "@/ah/components/ui/Posts";
 import React from "react";
 
 type Props = {
-  dictionary: any;
-};
-
-type CartProps = {
-  name: string;
-  image: StaticImageData;
-  href: string;
   dictionary: any;
 };
 
@@ -72,8 +64,8 @@ function MediaSection(props: Props) {
           <div className={`flex flex-row flex-wrap justify-around`}>
             {cards.map((card, index) => (
               <div key={index} className={`max-w-sm py-5`}>
-                <CardWithDecorativeImage
-                  name={card.name}
+                <Posts
+                  title={card.name}
                   image={card.image}
                   dictionary={props.dictionary}
                   href={card.href}
@@ -84,35 +76,6 @@ function MediaSection(props: Props) {
         </div>
       </>
     </Sections>
-  );
-}
-
-function CardWithDecorativeImage(props: CartProps) {
-  return (
-    <div className="max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
-      <a href={props.href}>
-        <Image
-          src={props.image}
-          alt={props.name}
-          className={`h-[300px] object-cover object-top`}
-        />
-      </a>
-      <div className="p-5">
-        <div className={`h-36`}>
-          <h5 className="mb-2 text-2xl font-medium text-gray-900 dark:text-white">
-            {props.name}
-          </h5>
-        </div>
-        <div className={`pb-5`}>
-          <a
-            href={props.href}
-            className="mb-4 border border-black bg-white px-8 py-4 text-center font-roboto font-thin text-black hover:bg-black hover:text-white focus:outline-none md:mb-0 md:mr-6"
-          >
-            {props.dictionary.other.readMore}
-          </a>
-        </div>
-      </div>
-    </div>
   );
 }
 

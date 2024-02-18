@@ -13,6 +13,8 @@ import React from "react";
 import { carouselItems } from "@/ah/utils/type";
 import MediaSection from "@/ah/components/Home/Media/MediaSection";
 import { fetchLatestProducts } from "@/ah/utils/fetch-latest-products";
+import BlogPosts from "../components/Home/BlogPosts/BlogPosts";
+import { fetchBlogPosts } from "../utils/fetch-blog-posts";
 
 type Props = {
   params: {
@@ -24,6 +26,7 @@ const IndexPage = async ({ params: { lang } }: Props) => {
   const dictionary = await getDictionary(lang);
 
   const data = await fetchLatestProducts(lang);
+  const blogPosts = await fetchBlogPosts(lang);
 
   const carouselItems: carouselItems = [];
   for (const item of data) {
@@ -55,6 +58,11 @@ const IndexPage = async ({ params: { lang } }: Props) => {
       <LatestArtwork dictionary={dictionary} carouselItems={carouselItems} />
       <AboutUs dictionary={dictionary} />
       <MediaSection dictionary={dictionary} />
+      {blogPosts.length > 0 ? (
+        <BlogPosts dictionary={dictionary} blogPosts={blogPosts} lang={lang} />
+      ) : (
+        <></>
+      )}
     </>
   );
 };

@@ -69,3 +69,13 @@ type detailArtwork = {
   images: image[];
   filters: singularFilter[];
 };
+
+type blogPost = {
+  id: string | number;
+  title: string;
+  subtitle?: string;
+  content: string;
+  coverImage: image;
+  thumbnail: image;
+  images?: image[];
+}
